@@ -14,22 +14,18 @@ User Query
     ↓
 HuggingFace Encoder (sentence-transformers/all-MiniLM-L6-v2)
     ↓
-Normalized Vector Representation
+Cosine Similarity against Pre-computed Route Utterances
     ↓
-Cosine Similarity Dot-Product against Pre-computed Route Utterances
+Domain Match (Highest similarity)
     ↓
-Deterministic Domain Argmax Ranking (No manual cutoff thresholds)
+Lookup Recommended Model for Domain (from config/models.yaml)
     ↓
-Candidate Model Filtering (from config/models.yaml)
-    ↓
-Model Selection Strategy (Quality, Cost, Latency, Priority, or Balanced)
-    ↓
-Routing Decision: { domain, recommended_model, llm_provider }
+Routing Decision: { query, domain, recommended_model, llm_provider }
 ```
 
 1. **Decoupled Architecture**: All domains, utterances, models, providers, and capabilities live in `config/routes.yaml` and `config/models.yaml`. No routing logic is hardcoded in Python.
-2. **Deterministic Ranking (No Thresholds)**: Instead of dropping queries via arbitrary cutoff thresholds (`if similarity > 0.8`), queries are deterministically routed to the highest-scoring domain ($Argmax$).
-3. **Sub-5ms Latency**: Route utterances are pre-computed into a matrix at application startup; runtime similarity is calculated via a single vectorized dot product.
+2. **Deterministic Matching**: Evaluates queries against route utterances using HuggingFace embeddings and returns the best matching domain.
+3. **Sub-5ms Latency**: Route utterances are pre-computed at startup; query matching is a fast vectorized dot product.
 
 ---
 
@@ -115,21 +111,9 @@ Invoke-RestMethod -Uri "http://localhost:8000/route" `
   "query": "How do I implement an LRU cache in Python?",
   "domain": "software_engineering",
   "recommended_model": "claude-3-5-sonnet-20241022",
-  "llm_provider": "Anthropic",
-  "selection_strategy": "quality",
-  "confidence_score": 1.0,
-  "routing_time_ms": 3.08
+  "llm_provider": "Anthropic"
 }
 ```
-
-### Strategy Override (Optional)
-You can optionally pass a `"strategy"` override (`quality`, `cost`, `latency`, `priority`, or `balanced`):
-```bash
-curl -X POST "http://localhost:8000/route" \
-  -H "Content-Type: application/json" \
-  -d '{"query": "How do I implement an LRU cache in Python?", "strategy": "cost"}'
-```
-*Returns `qwen-2.5-coder-32b` under provider `LiteLLM`.*
 
 ---
 

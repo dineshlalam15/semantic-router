@@ -1,6 +1,5 @@
 # Models Configuration
-# Defines available LLM models across providers, their supported domains, capabilities,
-# and operational metadata for selection strategies.
+# Maps LLM models to supported domains and capabilities.
 # Note: Providers and models are metadata only. No external provider API calls are made.
 
 models:
@@ -9,182 +8,74 @@ models:
     model_name: "claude-3-5-sonnet-20241022"
     domains:
       - "software_engineering"
-      - "stem_mathematics"
       - "legal_document_analysis"
     capabilities:
       - "coding"
       - "complex_reasoning"
       - "document_analysis"
-      - "tool_use"
-    metadata:
-      context_window: 200000
-      input_cost_per_m: 3.00
-      output_cost_per_m: 15.00
-      latency_p90_ms: 1200
-      reasoning_capability: 9.8
-      coding_capability: 9.9
-      vision_capability: true
-      tool_use: true
-      availability: 0.999
-      priority: 10
 
   - provider: "Anthropic"
     model_name: "claude-3-5-haiku-20241022"
     domains:
-      - "content_marketing"
       - "general_everyday_chat"
-      - "software_engineering"
+      - "content_marketing"
     capabilities:
       - "fast_inference"
-      - "coding"
+      - "conversational"
       - "creative_writing"
-    metadata:
-      context_window: 200000
-      input_cost_per_m: 0.80
-      output_cost_per_m: 4.00
-      latency_p90_ms: 450
-      reasoning_capability: 8.2
-      coding_capability: 8.5
-      vision_capability: true
-      tool_use: true
-      availability: 0.9995
-      priority: 8
 
   # OpenAI Models
   - provider: "OpenAI"
     model_name: "o1"
     domains:
       - "stem_mathematics"
-      - "software_engineering"
     capabilities:
       - "deep_reasoning"
       - "mathematics"
-      - "algorithmic_design"
-    metadata:
-      context_window: 200000
-      input_cost_per_m: 15.00
-      output_cost_per_m: 60.00
-      latency_p90_ms: 4500
-      reasoning_capability: 10.0
-      coding_capability: 9.7
-      vision_capability: true
-      tool_use: false
-      availability: 0.998
-      priority: 9
 
   - provider: "OpenAI"
     model_name: "gpt-4o"
     domains:
-      - "software_engineering"
-      - "stem_mathematics"
-      - "legal_document_analysis"
       - "content_marketing"
+      - "software_engineering"
     capabilities:
       - "multimodal"
       - "coding"
-      - "reasoning"
       - "creative_writing"
-      - "tool_use"
-    metadata:
-      context_window: 128000
-      input_cost_per_m: 2.50
-      output_cost_per_m: 10.00
-      latency_p90_ms: 850
-      reasoning_capability: 9.3
-      coding_capability: 9.2
-      vision_capability: true
-      tool_use: true
-      availability: 0.999
-      priority: 8
 
   - provider: "OpenAI"
-    model_name: "gpt-4o-mini"
+    model_name: "dall-e-3"
     domains:
-      - "general_everyday_chat"
-      - "content_marketing"
+      - "image_generation"
     capabilities:
-      - "lightweight"
-      - "fast_inference"
-      - "conversational"
-    metadata:
-      context_window: 128000
-      input_cost_per_m: 0.15
-      output_cost_per_m: 0.60
-      latency_p90_ms: 320
-      reasoning_capability: 7.8
-      coding_capability: 7.9
-      vision_capability: true
-      tool_use: true
-      availability: 0.9999
-      priority: 7
+      - "image_generation"
+      - "photorealism"
 
   # Gemini Models
   - provider: "Gemini"
     model_name: "gemini-1.5-pro"
     domains:
       - "legal_document_analysis"
-      - "software_engineering"
-      - "stem_mathematics"
     capabilities:
       - "ultra_long_context"
       - "document_analysis"
-      - "multimodal"
-      - "complex_reasoning"
-    metadata:
-      context_window: 2000000
-      input_cost_per_m: 3.50
-      output_cost_per_m: 10.50
-      latency_p90_ms: 1400
-      reasoning_capability: 9.2
-      coding_capability: 9.0
-      vision_capability: true
-      tool_use: true
-      availability: 0.9985
-      priority: 9
 
   - provider: "Gemini"
     model_name: "gemini-1.5-flash"
     domains:
-      - "content_marketing"
       - "general_everyday_chat"
-      - "legal_document_analysis"
     capabilities:
-      - "high_speed"
-      - "long_context"
-      - "cost_effective"
-    metadata:
-      context_window: 1000000
-      input_cost_per_m: 0.075
-      output_cost_per_m: 0.30
-      latency_p90_ms: 280
-      reasoning_capability: 8.0
-      coding_capability: 7.8
-      vision_capability: true
-      tool_use: true
-      availability: 0.9998
-      priority: 8
+      - "fast_inference"
+      - "conversational"
 
-  # LiteLLM Unified Proxy Models
+  # LiteLLM Models
   - provider: "LiteLLM"
     model_name: "deepseek-r1"
     domains:
       - "stem_mathematics"
-      - "software_engineering"
     capabilities:
       - "open_weights_reasoning"
       - "mathematics"
-      - "coding"
-    metadata:
-      context_window: 64000
-      input_cost_per_m: 0.55
-      output_cost_per_m: 2.19
-      latency_p90_ms: 2200
-      reasoning_capability: 9.6
-      coding_capability: 9.3
-      vision_capability: false
-      tool_use: false
-      availability: 0.995
-      priority: 7
 
   - provider: "LiteLLM"
     model_name: "qwen-2.5-coder-32b"
@@ -192,37 +83,4 @@ models:
       - "software_engineering"
     capabilities:
       - "code_generation"
-      - "syntax_analysis"
       - "refactoring"
-    metadata:
-      context_window: 32000
-      input_cost_per_m: 0.30
-      output_cost_per_m: 0.90
-      latency_p90_ms: 600
-      reasoning_capability: 8.7
-      coding_capability: 9.4
-      vision_capability: false
-      tool_use: true
-      availability: 0.996
-      priority: 7
-
-  - provider: "LiteLLM"
-    model_name: "llama-3.1-8b-instruct"
-    domains:
-      - "general_everyday_chat"
-      - "content_marketing"
-    capabilities:
-      - "low_latency"
-      - "casual_dialogue"
-      - "summarization"
-    metadata:
-      context_window: 128000
-      input_cost_per_m: 0.05
-      output_cost_per_m: 0.08
-      latency_p90_ms: 190
-      reasoning_capability: 7.2
-      coding_capability: 7.0
-      vision_capability: false
-      tool_use: true
-      availability: 0.9999
-      priority: 6

@@ -101,3 +101,24 @@ routes:
       - "Who invented the printing press and in what century?"
       - "What is a simple recipe for homemade sourdough bread?"
       - "Hello there, just checking in to see how everything works!"
+
+  - name: "image_generation"
+    description: "Text-to-image prompts, artistic style synthesis, logo design, visual rendering, and photo generation."
+    priority: 8
+    utterances:
+      - "Generate a photorealistic portrait of an astronaut exploring a neon alien jungle."
+      - "Create a digital illustration of a peaceful Japanese zen garden in watercolor style."
+      - "Design a modern minimalist vector logo for an artisan bakery."
+      - "Generate an oil painting of a stormy sea with a lighthouse in the style of Rembrandt."
+      - "Render a 3D isometric cutaway view of a futuristic smart home."
+      - "Create a vintage 1970s travel poster advertising a ski resort in the Alps."
+      - "Generate a high-resolution concept art of a mythical dragon guarding a crystal cavern."
+      - "Create a cute pixel art sprite of an 8-bit wizard holding a glowing staff."
+      - "Produce a studio product photograph of a luxury wristwatch on dark slate background."
+      - "Design a whimsical children's book cover featuring an owl flying through starry skies."
+      - "Generate a hyperrealistic close-up macro photo of a colorful chameleon on a branch."
+      - "Create an anime-style cinematic still of two characters watching fireworks on a rooftop."
+      - "Draw a charcoal sketch of an antique pocket watch resting on an old book."
+      - "Generate a vibrant pop art portrait in the style of Andy Warhol."
+      - "Create an architectural concept rendering of a sustainable glass skyscraper with vertical gardens."
+
