@@ -1,0 +1,60 @@
+# Virtual environments (must be ignored to prevent 50,000+ package files from appearing in git)
+.venv
+.venv/
+venv
+venv/
+ENV/
+env/
+*/.venv/
+*/venv/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions & build distribution
+*.so
+build/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Testing & coverage artifacts
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+*.coverage
+
+# macOS metadata files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+
+# IDE, OS and editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# HuggingFace & model caches
+.cache/
+huggingface/
+
+# Local environment secrets
+.env

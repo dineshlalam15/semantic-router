@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=65.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "semantic-llm-router"
+version = "0.1.0"
+description = "A decoupled, configuration-driven Semantic LLM Router in Python with HuggingFace embeddings"
+authors = [
+    { name = "Dinesh Lalam" }
+]
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "semantic-router[local]>=0.1.16",
+    "sentence-transformers>=3.0.0",
+    "torch>=2.2.0",
+    "transformers>=4.40.0",
+    "numpy>=1.26.0",
+    "fastapi>=0.115.0",
+    "uvicorn[standard]>=0.30.0",
+    "pydantic>=2.8.0",
+    "pydantic-settings>=2.4.0",
+    "pyyaml>=6.0.1",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.23.0",
+    "httpx>=0.27.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_functions = ["test_*"]
