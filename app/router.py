@@ -50,7 +50,11 @@ class SemanticRouter:
         self._matrix = self._encode_normalized(self._utterances)
 
     def _encode_normalized(self, texts: List[str]) -> np.ndarray:
-        """Encodes texts into L2-normalized vectors."""
+        """
+        Encodes texts into L2-normalized vectors.
+            - Input: batch of strings (texts)
+            - Returns: 2D NumPy array of normalized vectors (unit vectors)
+        """ 
         if not texts:
             return np.empty((0, 384), dtype=np.float32)
         raw = self.encoder(texts)
