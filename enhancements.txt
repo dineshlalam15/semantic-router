@@ -1,0 +1,43 @@
+Problem Statement: Some queries need extensive models, while some work with lighter models.
+How are we going to use different models for different queries?
+
+SECOND LAYER ROUTING
+Current state our router answers "what domain?" but doesn't check "how hard is the query?". 
+
+Example: 
+1. What is 2+2? 
+2. Prove the Riemann Hypothesis step by step. 
+
+Both come under "stem mathematics" and triggers o3 model Open AI model. 
+But 2+2 can be done using deepseek-r1 model which is lighter than o3 model. 
+
+
+How do we decide whether to use a heavy model or a light model? 
+Constraints: No LLM call/No ML model/No Classifier. 
+
+Approach: 
+Signal 1: 
+Query Length - Longer the query, more the context to understand & more nuance. 
+So we can set a threshold for query length. 
+If query length is greater than threshold, use heavy model. 
+Else use light model. 
+
+Signal 2:
+Complexity Keywords - Heavy words vs Light words. 
+Heavy words like prove, analyze, evaluate, derive, enhance, in-depth, step by step etc. 
+Light words like quick, simple, summarize, what is, when etc. 
+
+Signal 3: 
+Number of sub questions. 
+Maybe when a conjunction like "and" is used, there might be chance of user query has sub questions. 
+
+We can add a "tier" parameter to the each LLM Model.
+tier: light, balanced, heavy. 
+For each of the signal we can calculate the complexity score and decide the range of complexity to trigger the model. 
+Score: light: 0 - 33, balanced: 34 - 66, heavy: 67 - 100. 
+
+
+THIRD LAYER ROUTING 
+- Meta data ranking (kicks only if even after the tier filter there >1 model.)
+- Which of these equally capable models is best right now. 
+- Sort by: cost/latency/context window. 
