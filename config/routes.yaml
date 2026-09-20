@@ -1,18 +1,11 @@
 # Semantic Routes and Utterances Configuration
-# Defines semantic domains and representative natural language utterances for vector comparison.
-#
 # Distribution (80/20 rule):
-#   Industry routes (automotive + pharma): ~80%  → 4 routes × 15 utterances = 60 utterances
-#   General routes                        : ~20%  → 6 routes × ~6 utterances = ~36 utterances
-#
+# Industry routes (automotive + pharma): ~80%  
+# General routes                       : ~20%  
 # Each domain maps to one optimal model as declared in models.yaml.
 
 routes:
 
-  # ──────────────────────────────────────────────────────────────────────────────
-  # AUTOMOTIVE — VISUAL PRODUCTION  (Optimal: Firefly)
-  # Image-heavy prompts: campaign visuals, studio renders, billboards, showroom content
-  # ──────────────────────────────────────────────────────────────────────────────
   - name: "automotive_visual_production"
     description: "Photorealistic and cinematic automotive image generation including campaign visuals, studio renders, digital billboards, and showroom displays for car brands."
     priority: 10
@@ -33,10 +26,7 @@ routes:
       - "Produce a studio pack shot of a new EV in four colorway options arranged in a 2×2 grid format for brochure use."
       - "Create a dealer showroom ambient loop visual of a flagship sedan on a rotating plinth with soft spotlight and brand backdrop."
 
-  # ──────────────────────────────────────────────────────────────────────────────
-  # AUTOMOTIVE — CONTENT WRITING  (Optimal: Gemini)
-  # Long-form text: press releases, configurator copy, dealer training, emails, scripts
-  # ──────────────────────────────────────────────────────────────────────────────
+
   - name: "automotive_content_writing"
     description: "Automotive marketing and technical copywriting including press releases, configurator UI copy, dealer training materials, customer emails, and campaign scripts."
     priority: 10
@@ -57,10 +47,7 @@ routes:
       - "Write end-card and super-text copy for a 90-second online video ad promoting a zero-deposit SUV subscription offer."
       - "Create a comprehensive model specification comparison table with copy annotations for three variants of a luxury estate."
 
-  # ──────────────────────────────────────────────────────────────────────────────
-  # PHARMA — VISUAL DESIGN  (Optimal: Firefly)
-  # Regulated healthcare image generation: product shots, patient lifestyle, scientific illustrations, congress banners
-  # ──────────────────────────────────────────────────────────────────────────────
+
   - name: "pharma_visual_design"
     description: "Regulated pharmaceutical image generation including drug product photography, patient lifestyle imagery, scientific pathway illustrations, and HCP congress banner design."
     priority: 10
@@ -81,10 +68,7 @@ routes:
       - "Generate a patient reminder card visual — friendly nurse illustration, pill pack icon, simple bold typography, warm approachable palette."
       - "Create a trade publication quarter-page ad visual for a cholesterol-lowering biologic with patient and physician interaction scene."
 
-  # ──────────────────────────────────────────────────────────────────────────────
-  # PHARMA — MEDICAL WRITING  (Optimal: Gemini)
-  # Long-form regulated text: clinical copy, abstracts, MLR materials, patient comms, HCP content
-  # ──────────────────────────────────────────────────────────────────────────────
+
   - name: "pharma_medical_writing"
     description: "Regulated pharmaceutical content writing including clinical evidence summaries, congress abstracts, MLR-ready promotional copy, patient education, and HCP communications."
     priority: 10
@@ -105,9 +89,6 @@ routes:
       - "Write a 400-word patient story for a branded patient support programme website capturing the treatment journey for a plaque psoriasis medication."
       - "Produce the executive summary of a health economic outcomes research (HEOR) report for a payer audience on a biosimilar cost-effectiveness analysis."
 
-  # ──────────────────────────────────────────────────────────────────────────────
-  # GENERAL ROUTES  (~20%)
-  # ──────────────────────────────────────────────────────────────────────────────
 
   - name: "software_engineering"
     description: "Programming, algorithms, debugging, API design, DevOps, and software architecture."

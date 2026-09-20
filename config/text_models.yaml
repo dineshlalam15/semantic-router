@@ -1,14 +1,9 @@
-# Text Models Configuration
-# Best-in-market LLM models for text content generation.
+# Text Models Configuration: Best-in-market LLM models for text content generation.
 # Providers: Anthropic, OpenAI, Gemini, LiteLLM only.
 # Metadata: cost (USD per 1K tokens), avg_latency_ms, context_window_k tokens.
-# The router (router.py) loads this file alongside image_models.yaml at startup and merges both.
 
 models:
 
-  # ── Gemini ──────────────────────────────────────────────────────────────────
-  # Listed first so gemini-2.0-flash is the first-match (optimal) model for
-  # automotive_content_writing and pharma_medical_writing — aligned with prompt examples.
   - provider: "Gemini"
     model_name: "gemini-2.0-flash"
     domains:
@@ -40,7 +35,7 @@ models:
       avg_latency_ms: 2500
       context_window_k: 2000
 
-  # ── Anthropic ───────────────────────────────────────────────────────────────
+
   - provider: "Anthropic"
     model_name: "claude-opus-4-5"
     domains:
@@ -84,7 +79,7 @@ models:
       avg_latency_ms: 600
       context_window_k: 200
 
-  # ── OpenAI ──────────────────────────────────────────────────────────────────
+
   - provider: "OpenAI"
     model_name: "gpt-4o"
     domains:
@@ -114,7 +109,6 @@ models:
       avg_latency_ms: 8000
       context_window_k: 200
 
-  # ── OpenAI ──────────────────────────────────────────────────────────────────
   - provider: "OpenAI"
     model_name: "gpt-4o"
     domains:
@@ -130,8 +124,7 @@ models:
       avg_latency_ms: 1400
       context_window_k: 128
 
-  # ── LiteLLM ─────────────────────────────────────────────────────────────────
-  - provider: "LiteLLM"
+
     model_name: "deepseek-r1"
     domains:
       - "stem_mathematics"

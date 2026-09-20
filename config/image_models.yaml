@@ -1,14 +1,9 @@
-# Image Models Configuration
-# Best-in-market LLM models for image generation.
-# Providers: Anthropic, OpenAI, Gemini, LiteLLM + Firefly (for automotive & pharma visuals).
-# Note: Anthropic has no image generation model and is excluded from this file.
+# Image Models Configuration: Best-in-market LLM models for image generation.
+# Providers: Anthropic, OpenAI, Gemini, LiteLLM + Firefly (for automotive & pharma visuals)
 # Metadata: cost (USD per image or per 1K tokens), avg_latency_ms.
-# Note: This file is for reference and future use. The active router reads models.yaml.
 
 models:
 
-  # ── Adobe Firefly ────────────────────────────────────────────────────────────
-  # Best-in-class for brand-safe, commercially licensed, regulated-industry image generation.
   - provider: "Firefly"
     model_name: "firefly-image-3"
     domains:
@@ -40,7 +35,7 @@ models:
       avg_latency_ms: 3000
       context_window_k: null
 
-  # ── OpenAI ──────────────────────────────────────────────────────────────────
+
   - provider: "OpenAI"
     model_name: "dall-e-3"
     domains:
@@ -56,7 +51,7 @@ models:
       avg_latency_ms: 5000
       context_window_k: null
 
-  # ── Gemini ──────────────────────────────────────────────────────────────────
+
   - provider: "Gemini"
     model_name: "imagen-3"
     domains:
@@ -72,8 +67,7 @@ models:
       avg_latency_ms: 4000
       context_window_k: null
 
-  # ── LiteLLM ─────────────────────────────────────────────────────────────────
-  # Access to open-weights image models via LiteLLM proxy gateway.
+
   - provider: "LiteLLM"
     model_name: "stable-diffusion-3-5-large"
     domains:
