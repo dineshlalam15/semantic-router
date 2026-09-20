@@ -17,23 +17,33 @@ class SemanticRouter:
     def __init__(
         self,
         routes_path: str = "config/routes.yaml",
-        models_path: str = "config/models.yaml",
+        text_models_path: str = "config/text_models.yaml",
+        image_models_path: str = "config/image_models.yaml",
     ):
         self.routes_path = Path(routes_path)
-        self.models_path = Path(models_path)
+        self.text_models_path = Path(text_models_path)
+        self.image_models_path = Path(image_models_path)
 
         # 1. Load routes from YAML
         with open(self.routes_path, "r", encoding="utf-8") as f:
             routes_data = yaml.safe_load(f) or {}
         self.routes: List[Dict[str, Any]] = routes_data.get("routes", [])
 
-        # 2. Load models from YAML
-        with open(self.models_path, "r", encoding="utf-8") as f:
-            models_data = yaml.safe_load(f) or {}
-        self.models: List[Dict[str, Any]] = models_data.get("models", [])
+        # 2. Load and merge text + image models at startup
+        with open(self.text_models_path, "r", encoding="utf-8") as f:
+            text_models_data = yaml.safe_load(f) or {}
+        with open(self.image_models_path, "r", encoding="utf-8") as f:
+            image_models_data = yaml.safe_load(f) or {}
+        self.models: List[Dict[str, Any]] = (
+            text_models_data.get("models", []) + image_models_data.get("models", [])
+        )
 
         # 3. Initialize Hugging Face encoder
-        logger.info("Initializing HuggingFaceEncoder...")
+        logger.info(
+            "Initializing HuggingFaceEncoder | text_models=%s image_models=%s",
+            self.text_models_path,
+            self.image_models_path,
+        )
         self.encoder = HuggingFaceEncoder()
 
         # 4. Flatten utterances and map them to their domain names

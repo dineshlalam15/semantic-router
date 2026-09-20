@@ -1,124 +1,164 @@
 # Semantic Routes and Utterances Configuration
 # Defines semantic domains and representative natural language utterances for vector comparison.
+#
+# Distribution (80/20 rule):
+#   Industry routes (automotive + pharma): ~80%  → 4 routes × 15 utterances = 60 utterances
+#   General routes                        : ~20%  → 6 routes × ~6 utterances = ~36 utterances
+#
+# Each domain maps to one optimal model as declared in models.yaml.
 
 routes:
-  - name: "software_engineering"
-    description: "Programming, algorithms, debugging, API design, DevOps, and software architecture."
+
+  # ──────────────────────────────────────────────────────────────────────────────
+  # AUTOMOTIVE — VISUAL PRODUCTION  (Optimal: Firefly)
+  # Image-heavy prompts: campaign visuals, studio renders, billboards, showroom content
+  # ──────────────────────────────────────────────────────────────────────────────
+  - name: "automotive_visual_production"
+    description: "Photorealistic and cinematic automotive image generation including campaign visuals, studio renders, digital billboards, and showroom displays for car brands."
     priority: 10
     utterances:
-      - "How do I implement an LRU cache in Python?"
-      - "Write a function to find the longest palindromic substring."
-      - "Debug this Java NullPointerException stack trace."
-      - "Help me design a scalable REST API using FastAPI."
-      - "How do Python asyncio event loops handle non-blocking I/O?"
-      - "Explain the difference between TCP and UDP with code examples."
-      - "Write a SQL query to find the second highest salary in an employees table."
-      - "How do I configure a multi-stage Docker build for a Go microservice?"
-      - "Refactor this recursive tree traversal function to be iterative."
-      - "Explain how Kubernetes deployments manage rolling updates and health probes."
-      - "Write a TypeScript interface and generic repository pattern for MongoDB."
-      - "How can I prevent race conditions in concurrent Go goroutines using mutexes?"
-      - "Optimize this slow PostgreSQL query using indexing and execution plans."
-      - "How do I write unit tests with pytest mocking external HTTP services?"
-      - "Explain the difference between optimistic and pessimistic locking in databases."
+      - "Render a cinematic exterior shot of a next-gen electric sedan on a coastal highway at sunset with motion blur on the rear wheels."
+      - "Generate a studio-quality 360-degree turntable sequence for a luxury crossover in pearl white finish with soft key lighting."
+      - "Create a dramatic night-time billboard visual for a hybrid SUV launch — dark gradient background, headlight light trails, minimal brand space."
+      - "Produce an in-cabin lifestyle shot of a young family inside a premium SUV with panoramic sunroof and warm afternoon light."
+      - "Design a photorealistic hero image of a sports coupe drifting on a wet urban road with neon city reflections."
+      - "Render a side-profile studio shot of a pickup truck on a clean white cyclorama with controlled shadow underlay."
+      - "Create a campaign-quality off-road visual showing a rugged 4x4 climbing rocky terrain at golden hour."
+      - "Generate a comparison visual of three trim levels of the same EV sedan — exterior colors varying, spec highlight overlays."
+      - "Produce an outdoor lifestyle shot of a compact city car parked at a European café with ambient street atmosphere."
+      - "Create a photorealistic charging station scene showing an EV plugged in at a futuristic urban charging hub at dusk."
+      - "Design a launch visual for a convertible sports car with the top down, shot from a low drone angle on open highway."
+      - "Render a detail close-up sequence of the front grille, alloy wheels, and door handle of a luxury executive saloon."
+      - "Generate a brand campaign image showing a family SUV parked at a mountain viewpoint — aspirational and wide format."
+      - "Produce a studio pack shot of a new EV in four colorway options arranged in a 2×2 grid format for brochure use."
+      - "Create a dealer showroom ambient loop visual of a flagship sedan on a rotating plinth with soft spotlight and brand backdrop."
+
+  # ──────────────────────────────────────────────────────────────────────────────
+  # AUTOMOTIVE — CONTENT WRITING  (Optimal: Gemini)
+  # Long-form text: press releases, configurator copy, dealer training, emails, scripts
+  # ──────────────────────────────────────────────────────────────────────────────
+  - name: "automotive_content_writing"
+    description: "Automotive marketing and technical copywriting including press releases, configurator UI copy, dealer training materials, customer emails, and campaign scripts."
+    priority: 10
+    utterances:
+      - "Write a 600-word press release for the global market launch of a plug-in hybrid crossover including WLTP range figures and CEO quote."
+      - "Draft all trim-level descriptions for a three-tier EV configurator — entry, mid, and signature — each under 80 words."
+      - "Create a 30-question dealer training FAQ covering hybrid powertrain technology, range anxiety objections, and home-charging setup."
+      - "Write a personalised email for lapsed SUV enquirers who browsed the configurator 60 days ago, incentivising with 0% finance for 24 months."
+      - "Generate feature marketing copy for 10 optional accessories on a flagship sedan, each description under 40 words."
+      - "Write a script for a 60-second brand TV commercial introducing an all-electric family SUV — emotional tone, no voiceover jargon."
+      - "Draft a product brochure introduction paragraph (200 words) positioning a new compact EV against premium European rivals."
+      - "Produce a social media launch calendar (10 posts) for a new hybrid model covering LinkedIn, Instagram, and X formats."
+      - "Write the legal footnotes and disclaimer copy for range claims, fuel economy figures, and finance offers in an EV brochure."
+      - "Create a CRM re-engagement email sequence (3 parts) targeting test-drive no-shows for a flagship electric saloon launch."
+      - "Write a 400-word editorial piece for a car magazine on the sustainability story behind the new battery supply chain."
+      - "Generate dealer talking-point cards (one per feature) for a five-feature EV technology presentation at a launch event."
+      - "Draft a customer-facing explanation of real-world charging speeds, home wallbox options, and public network compatibility."
+      - "Write end-card and super-text copy for a 90-second online video ad promoting a zero-deposit SUV subscription offer."
+      - "Create a comprehensive model specification comparison table with copy annotations for three variants of a luxury estate."
+
+  # ──────────────────────────────────────────────────────────────────────────────
+  # PHARMA — VISUAL DESIGN  (Optimal: Firefly)
+  # Regulated healthcare image generation: product shots, patient lifestyle, scientific illustrations, congress banners
+  # ──────────────────────────────────────────────────────────────────────────────
+  - name: "pharma_visual_design"
+    description: "Regulated pharmaceutical image generation including drug product photography, patient lifestyle imagery, scientific pathway illustrations, and HCP congress banner design."
+    priority: 10
+    utterances:
+      - "Generate a photorealistic studio pack shot of a prescription tablet blister pack on a clean white surface, brand-compliant colours."
+      - "Create a patient lifestyle image showing an elderly couple enjoying a morning walk in a park — warm natural light, no medical devices visible."
+      - "Design a scientific cross-section illustration of a cell receptor interaction mechanism in a clean infographic palette for an HCP slide deck."
+      - "Produce a congress booth banner (600×2000px) for an oncology drug — dark blue gradient, headline space, ISI block area at the bottom."
+      - "Generate a diverse group of patients of different ages and ethnicities in an active post-treatment lifestyle setting, empathetic feel."
+      - "Illustrate a pharmacokinetic absorption curve in a clean, publication-quality scientific style with labelled axes and confidence band shading."
+      - "Create a double-page spread layout placeholder with a hero lifestyle image on the left and structured data callout space on the right."
+      - "Design a 300×600px ESMO digital banner for a JAK inhibitor brand — coral gradient background, HCP audience, ISI text block at the base."
+      - "Produce a branded patient journey infographic showing five stages from diagnosis to stable maintenance therapy with icon-based illustrations."
+      - "Generate a high-resolution anatomy illustration highlighting joint inflammation sites relevant to a rheumatoid arthritis treatment mechanism."
+      - "Create an eDetail slide background — abstract cellular blue-toned imagery with a clear white overlay area for clinical data tables."
+      - "Design a medical conference pull-up banner for a diabetes drug featuring aspirational patient imagery and minimal brand mark placement."
+      - "Produce a tri-fold brochure visual with Panel 1 as a brand hero, Panel 2 as a mechanism-of-action anatomical illustration, Panel 3 as instructional icons."
+      - "Generate a patient reminder card visual — friendly nurse illustration, pill pack icon, simple bold typography, warm approachable palette."
+      - "Create a trade publication quarter-page ad visual for a cholesterol-lowering biologic with patient and physician interaction scene."
+
+  # ──────────────────────────────────────────────────────────────────────────────
+  # PHARMA — MEDICAL WRITING  (Optimal: Gemini)
+  # Long-form regulated text: clinical copy, abstracts, MLR materials, patient comms, HCP content
+  # ──────────────────────────────────────────────────────────────────────────────
+  - name: "pharma_medical_writing"
+    description: "Regulated pharmaceutical content writing including clinical evidence summaries, congress abstracts, MLR-ready promotional copy, patient education, and HCP communications."
+    priority: 10
+    utterances:
+      - "Write the clinical evidence section for an HCP detail aid covering Phase III trial endpoints, NNT, adverse event profile, and black box warning language."
+      - "Draft a 250-word structured abstract for an EULAR congress submission on a Phase II biologics study — IMRD format with p-values and confidence intervals."
+      - "Write a 3-email patient nurture sequence for newly diagnosed Type 2 diabetes patients starting a new GLP-1 therapy — empathetic, FDA-compliant, adherence-focused."
+      - "Generate five LinkedIn posts for a medical affairs team sharing Phase III data — each 150 words, fair-balance compliant, professional scientific tone."
+      - "Draft an IVR script for an automated patient medication reminder — friendly, concise, includes dosing prompt and escalation to nurse helpline."
+      - "Write an oncologist-targeted eDetail slide deck narrative (6 slides, 80 words per slide) for a second-line colorectal cancer therapy."
+      - "Create a patient-facing frequently asked questions document covering drug mechanism, side effects, injection technique, and storage for a self-injectable biologic."
+      - "Write an abstract for an ASH congress submission on a CAR-T cell therapy study including primary endpoint, safety data, and clinical implications."
+      - "Draft an MLR-ready speaker bureau talk transcript for a rheumatologist presenting registry data on a PDE4 inhibitor — 15 minutes, balanced tone."
+      - "Generate a patient adherence guide for a once-weekly oral medication — plain language, lifestyle tips, managing missed doses, when to call the doctor."
+      - "Write a clinical pharmacology summary sheet for a hospital formulary submission covering mechanism, PK/PD, drug interactions, and renal dosing adjustments."
+      - "Draft a disease awareness editorial for a pharma brand medical affairs blog on early recognition of pulmonary arterial hypertension — non-promotional."
+      - "Create a prescriber reminder card with dosing chart, contraindications, and monitoring schedule for a newly approved immunosuppressant."
+      - "Write a 400-word patient story for a branded patient support programme website capturing the treatment journey for a plaque psoriasis medication."
+      - "Produce the executive summary of a health economic outcomes research (HEOR) report for a payer audience on a biosimilar cost-effectiveness analysis."
+
+  # ──────────────────────────────────────────────────────────────────────────────
+  # GENERAL ROUTES  (~20%)
+  # ──────────────────────────────────────────────────────────────────────────────
+
+  - name: "software_engineering"
+    description: "Programming, algorithms, debugging, API design, DevOps, and software architecture."
+    priority: 7
+    utterances:
+      - "How do I implement an LRU cache in Python using OrderedDict?"
+      - "Debug this Java NullPointerException and explain the root cause from the stack trace."
+      - "Help me design a scalable REST API in FastAPI with authentication and rate limiting."
+      - "Write a SQL query to find the second highest salary from an employees table."
 
   - name: "stem_mathematics"
     description: "Mathematics, calculus, linear algebra, statistics, physics, and quantitative reasoning."
-    priority: 9
+    priority: 7
     utterances:
-      - "Solve the quadratic equation x^2 - 5x + 6 = 0."
-      - "Calculate the derivative of f(x) = x^3 * sin(x) with respect to x."
-      - "Explain how to find the eigenvalues and eigenvectors of a 3x3 matrix."
-      - "Compute the definite integral of e^(-x^2) from negative infinity to infinity."
-      - "What is Bayes' theorem and how is it used in conditional probability?"
-      - "Prove that the square root of 2 is an irrational number."
-      - "How do you solve a second-order linear homogeneous differential equation?"
-      - "Explain the central limit theorem and its assumptions in statistics."
-      - "What is the physical meaning of Maxwell's equations in electromagnetism?"
-      - "Calculate the determinant of this 4x4 matrix."
-      - "Explain the difference between covariance and correlation."
-      - "How does gradient descent minimize convex multivariate loss functions?"
-      - "Derive the formula for compound interest compounded continuously."
-      - "Explain the Heisenberg uncertainty principle in quantum mechanics."
-      - "Compute the Taylor series expansion for cos(x) centered at x = 0."
+      - "Solve the quadratic equation and explain the discriminant condition for real roots."
+      - "Explain how to find eigenvalues and eigenvectors for a 3×3 matrix step by step."
+      - "What is Bayes' theorem and how is it applied in conditional probability problems?"
+      - "How does gradient descent minimise a convex loss function in machine learning?"
 
   - name: "legal_document_analysis"
     description: "Legal analysis, contract review, compliance, regulations, NDA, and terms of service."
-    priority: 8
-    utterances:
-      - "Review this non-disclosure agreement for non-compete and indemnification clauses."
-      - "What are the key data privacy requirements under GDPR Article 6 for processing consent?"
-      - "Analyze the limitation of liability clause in this master services agreement."
-      - "Does this software license agreement allow commercial distribution under Apache 2.0?"
-      - "Draft a standard intellectual property assignment clause for employee contracts."
-      - "What are the legal distinctions between a breach of warranty and breach of condition?"
-      - "Identify potential compliance risks in this SaaS vendor terms of service."
-      - "Explain force majeure provisions and their enforceability during global disruptions."
-      - "What disclosures are required under SEC regulations for material non-public information?"
-      - "Evaluate this mutual indemnification provision for third-party patent claims."
-      - "Summarize the termination rights and notice periods in this commercial lease."
-      - "What constitutes fair use under United States copyright law for educational materials?"
-      - "Check this contract for any unilateral modification rights by the vendor."
-      - "Explain statutory damages versus actual damages in intellectual property litigation."
-      - "Review this privacy policy for compliance with the California Consumer Privacy Act CCPA."
-
-  - name: "content_marketing"
-    description: "Copywriting, marketing strategy, SEO optimization, social campaigns, and branding."
     priority: 7
     utterances:
-      - "Write an engaging LinkedIn hook for our new B2B AI developer tool launch."
-      - "Generate 5 high-converting email newsletter subject lines for a product release."
-      - "How do I optimize this blog post for target SEO keywords and search intent?"
-      - "Create a customer persona and value proposition for a fintech budget tracker."
-      - "Write a compelling headline and call-to-action for a landing page."
-      - "Draft a 30-day social media content calendar for a tech startup."
-      - "How can we improve the conversion rate on our pricing page checkout funnel?"
-      - "Write a persuasive press release announcing our Series A funding round."
-      - "Create a script for a 60-second product demo video explaining key benefits."
-      - "What are the best strategies to increase organic referral traffic through content syndication?"
-      - "Write a punchy tagline for an eco-friendly consumer coffee brand."
-      - "Develop an omnichannel marketing campaign concept for Black Friday Cyber Monday."
-      - "How should we structure a customer case study to highlight ROI and metrics?"
-      - "Write copy for a re-engagement drip campaign targeting churned SaaS users."
-      - "Explain the difference between top-of-funnel brand awareness and bottom-of-funnel direct response."
+      - "Review a non-disclosure agreement for risky non-compete and indemnification clauses."
+      - "What are the key data privacy obligations under GDPR Article 6 for processing consent?"
+      - "Identify potential compliance issues in a SaaS vendor's terms of service document."
+      - "Draft a standard intellectual property assignment clause for employee contracts."
+
+  - name: "content_marketing"
+    description: "Copywriting, marketing strategy, SEO optimisation, social campaigns, and branding."
+    priority: 6
+    utterances:
+      - "Write a high-converting LinkedIn hook for a B2B SaaS developer tool launch announcement."
+      - "Generate five email newsletter subject lines for a new product release targeting SMBs."
+      - "How do I optimise a blog post for target SEO keywords and user search intent?"
+      - "Write copy for a re-engagement drip campaign targeting churned B2B SaaS subscribers."
 
   - name: "general_everyday_chat"
     description: "Casual conversation, greetings, lifestyle suggestions, trivia, and everyday general queries."
     priority: 5
     utterances:
-      - "Good morning! How are you doing today?"
-      - "What are some quick, healthy breakfast ideas I can make in under 10 minutes?"
-      - "Can you recommend some popular sci-fi books published in the last decade?"
-      - "Tell me a fun and surprising trivia fact about space exploration."
-      - "How can I improve my sleep schedule and nighttime routine?"
-      - "What is a good beginner-friendly workout routine for home without equipment?"
-      - "Explain why the sky looks blue during the day in simple terms."
-      - "I feel a bit stressed today, can you share some relaxing mindfulness tips?"
-      - "What are some interesting hobbies someone can pick up on weekends?"
-      - "Tell me a lighthearted joke to brighten my afternoon."
-      - "What are the essential items to pack for a five-day hiking trip?"
-      - "How do I keep indoor house plants healthy during the winter months?"
-      - "Who invented the printing press and in what century?"
-      - "What is a simple recipe for homemade sourdough bread?"
-      - "Hello there, just checking in to see how everything works!"
+      - "Good morning! Can you help me plan a productive daily routine for remote work?"
+      - "What are some quick healthy breakfast ideas I can prepare in under 10 minutes?"
+      - "How can I improve my sleep quality and build a better nighttime wind-down routine?"
+      - "Tell me an interesting fact about space exploration I probably haven't heard before."
 
   - name: "image_generation"
-    description: "Text-to-image prompts, artistic style synthesis, logo design, visual rendering, and photo generation."
-    priority: 8
+    description: "General-purpose text-to-image prompts, artistic style synthesis, logo design, and creative visual rendering."
+    priority: 6
     utterances:
-      - "Generate a photorealistic portrait of an astronaut exploring a neon alien jungle."
-      - "Create a digital illustration of a peaceful Japanese zen garden in watercolor style."
-      - "Design a modern minimalist vector logo for an artisan bakery."
-      - "Generate an oil painting of a stormy sea with a lighthouse in the style of Rembrandt."
-      - "Render a 3D isometric cutaway view of a futuristic smart home."
-      - "Create a vintage 1970s travel poster advertising a ski resort in the Alps."
-      - "Generate a high-resolution concept art of a mythical dragon guarding a crystal cavern."
-      - "Create a cute pixel art sprite of an 8-bit wizard holding a glowing staff."
-      - "Produce a studio product photograph of a luxury wristwatch on dark slate background."
-      - "Design a whimsical children's book cover featuring an owl flying through starry skies."
-      - "Generate a hyperrealistic close-up macro photo of a colorful chameleon on a branch."
-      - "Create an anime-style cinematic still of two characters watching fireworks on a rooftop."
-      - "Draw a charcoal sketch of an antique pocket watch resting on an old book."
-      - "Generate a vibrant pop art portrait in the style of Andy Warhol."
-      - "Create an architectural concept rendering of a sustainable glass skyscraper with vertical gardens."
-
+      - "Generate a photorealistic portrait of an astronaut exploring a bioluminescent alien landscape."
+      - "Create a digital watercolour illustration of a serene Japanese zen garden at dawn."
+      - "Design a modern minimalist vector logo for an artisan coffee roastery brand."
+      - "Create an architectural concept rendering of a sustainable glass tower with vertical gardens."

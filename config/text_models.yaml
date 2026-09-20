@@ -1,0 +1,158 @@
+# Text Models Configuration
+# Best-in-market LLM models for text content generation.
+# Providers: Anthropic, OpenAI, Gemini, LiteLLM only.
+# Metadata: cost (USD per 1K tokens), avg_latency_ms, context_window_k tokens.
+# The router (router.py) loads this file alongside image_models.yaml at startup and merges both.
+
+models:
+
+  # ── Gemini ──────────────────────────────────────────────────────────────────
+  # Listed first so gemini-2.0-flash is the first-match (optimal) model for
+  # automotive_content_writing and pharma_medical_writing — aligned with prompt examples.
+  - provider: "Gemini"
+    model_name: "gemini-2.0-flash"
+    domains:
+      - "automotive_content_writing"
+      - "pharma_medical_writing"
+      - "general_everyday_chat"
+    capabilities:
+      - "fast_inference"
+      - "long_form_writing"
+      - "conversational"
+    metadata:
+      cost_per_1k_input_tokens: 0.0001
+      cost_per_1k_output_tokens: 0.0004
+      avg_latency_ms: 400
+      context_window_k: 1000
+
+  - provider: "Gemini"
+    model_name: "gemini-1.5-pro"
+    domains:
+      - "legal_document_analysis"
+      - "pharma_medical_writing"
+    capabilities:
+      - "ultra_long_context"
+      - "document_analysis"
+      - "regulated_content"
+    metadata:
+      cost_per_1k_input_tokens: 0.00125
+      cost_per_1k_output_tokens: 0.005
+      avg_latency_ms: 2500
+      context_window_k: 2000
+
+  # ── Anthropic ───────────────────────────────────────────────────────────────
+  - provider: "Anthropic"
+    model_name: "claude-opus-4-5"
+    domains:
+      - "legal_document_analysis"
+    capabilities:
+      - "long_form_writing"
+      - "complex_reasoning"
+      - "regulated_content"
+    metadata:
+      cost_per_1k_input_tokens: 0.015
+      cost_per_1k_output_tokens: 0.075
+      avg_latency_ms: 3200
+      context_window_k: 200
+
+  - provider: "Anthropic"
+    model_name: "claude-3-5-sonnet-20241022"
+    domains:
+      - "software_engineering"
+    capabilities:
+      - "coding"
+      - "complex_reasoning"
+      - "document_analysis"
+    metadata:
+      cost_per_1k_input_tokens: 0.003
+      cost_per_1k_output_tokens: 0.015
+      avg_latency_ms: 1800
+      context_window_k: 200
+
+  - provider: "Anthropic"
+    model_name: "claude-3-5-haiku-20241022"
+    domains:
+      - "general_everyday_chat"
+      - "content_marketing"
+    capabilities:
+      - "fast_inference"
+      - "conversational"
+      - "creative_writing"
+    metadata:
+      cost_per_1k_input_tokens: 0.0008
+      cost_per_1k_output_tokens: 0.004
+      avg_latency_ms: 600
+      context_window_k: 200
+
+  # ── OpenAI ──────────────────────────────────────────────────────────────────
+  - provider: "OpenAI"
+    model_name: "gpt-4o"
+    domains:
+      - "automotive_content_writing"
+      - "content_marketing"
+    capabilities:
+      - "multimodal"
+      - "creative_writing"
+      - "structured_output"
+    metadata:
+      cost_per_1k_input_tokens: 0.0025
+      cost_per_1k_output_tokens: 0.010
+      avg_latency_ms: 1400
+      context_window_k: 128
+
+  - provider: "OpenAI"
+    model_name: "o3"
+    domains:
+      - "stem_mathematics"
+    capabilities:
+      - "deep_reasoning"
+      - "mathematics"
+      - "scientific_analysis"
+    metadata:
+      cost_per_1k_input_tokens: 0.010
+      cost_per_1k_output_tokens: 0.040
+      avg_latency_ms: 8000
+      context_window_k: 200
+
+  # ── OpenAI ──────────────────────────────────────────────────────────────────
+  - provider: "OpenAI"
+    model_name: "gpt-4o"
+    domains:
+      - "automotive_content_writing"
+      - "content_marketing"
+    capabilities:
+      - "multimodal"
+      - "creative_writing"
+      - "structured_output"
+    metadata:
+      cost_per_1k_input_tokens: 0.0025
+      cost_per_1k_output_tokens: 0.010
+      avg_latency_ms: 1400
+      context_window_k: 128
+
+  # ── LiteLLM ─────────────────────────────────────────────────────────────────
+  - provider: "LiteLLM"
+    model_name: "deepseek-r1"
+    domains:
+      - "stem_mathematics"
+    capabilities:
+      - "open_weights_reasoning"
+      - "mathematics"
+    metadata:
+      cost_per_1k_input_tokens: 0.0004
+      cost_per_1k_output_tokens: 0.0016
+      avg_latency_ms: 2000
+      context_window_k: 128
+
+  - provider: "LiteLLM"
+    model_name: "qwen-2.5-coder-32b"
+    domains:
+      - "software_engineering"
+    capabilities:
+      - "code_generation"
+      - "refactoring"
+    metadata:
+      cost_per_1k_input_tokens: 0.0002
+      cost_per_1k_output_tokens: 0.0006
+      avg_latency_ms: 1200
+      context_window_k: 128
