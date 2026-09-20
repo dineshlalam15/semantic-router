@@ -1,0 +1,71 @@
+"Role": "You are a senior python backend engineer with hands on experience in building Gen AI & Machine Learning applications."
+"Context": "The application is a loosely coupled semantic router with different LLM models and Router Integrated. You can analyze the code for better understanding the flow. We have different utterances for automobile and health care sector & their results between firefly & gemini model stating which model performed better. We have utterances for both text & image seperately & text + image combined."
+"Task": 
+	1. I will provide utterances, analyze the routes.yaml, create similar utterances accordingly for each text model's domain and strengths assuming the attached list contains the sample prompts for both of the LLM models (firefly/gemini). 
+	2. Now we have models.yaml file which contains different LLM Models for 4 providers: Anthropic, OpenAI, Gemini & LiteLLM. Now split these models.yaml into text_models.yaml & image_models.yaml file. 
+		text_models.yaml - consists only LLM models that are currently best in market to generate text content.
+		image_models.yaml - consists only LLM models that are currently best in market to generate images.
+		Note: the models should be present only among the 4 providers & and try to add a couple of image generation models for firefly too. 
+	3. Add basic metadata too each of the provider like cost, input & out tokens, latency. Do not add unecessary fields in metadata which makes our code logic too complex. As of now we are not implementing any scoring metric between the models but just add the basic meta data for further usage. 
+	3. Do not change the embedding model or any flow of the project.
+	4. Make sure to follow the loose coupled nature of the application. 
+
+
+"Example utterancies":
+
+"Sector": "AUTOMOTIVE"
+"Content": "Image"
+"Prompt Examples & Best Provider":
+	1. Generate a cinematic exterior shot of the new AuroraX EV in midnight blue metalite, on a mountain road at dusk, dramatic sky, motion blur on wheels, photorealistic. Campaign launch quality. (FIREFLY)
+	2. Create an in-car lifestyle shot of a family of four in the Veltro SUV interior. Parents smiling, kids with tablets, panoramic sunroof letting in golden light. No seatbelt issues. Safe and aspirational. (FIREFLY)
+	3. Create a 4K 16:9 digital billboard for the Veltro Hybrid. Minimal text space left, dark background, car silhouette emerging from light trails, tagline treatment area bottom-right. Urban feel. (FIREFLY)
+	4. Produce a 360° turntable sequence (8 frames) of the AuroraX in Glacier White. Studio white cyc, soft key light, spec highlight on shoulder line, clean shadow underlay. (FIREFLY)
+
+"Sector": "AUTOMOTIVE"
+"Content": "text"
+"Prompt Examples & Best Provider":
+	1. Write all configurator UI copy for the AuroraX EV: trim level descriptions (3 tiers), colour names and descriptors, 12 optional feature descriptions (max 40 words each), legal footnotes for range claims. (GEMINI)
+	2. Write a 600-word press release for the global launch of the Veltro Hybrid. Include WLTP range, 0-62 specs, sustainability positioning, CEO quote, dealer network info, and embargo instructions. (GEMINI)
+	3. Write a personalised re-engagement email for lapsed Veltro prospects who visited the configurator 90 days ago. Incentive: 0% APR for 36 months. Urgency without being pushy. Include dynamic name field. (GEMINI)
+	4. Generate a 30-question FAQ for Veltro dealer training on the new hybrid powertrain. Technical but accessible, include objection handling for range anxiety, charging, and EV running costs. (GEMINI)
+
+"Sector": "AUTOMOTIVE"
+"Content": "Image & text"
+"Prompt Examples & Best Provider": 
+	1. Create a 10-post social launch kit for AuroraX. Mix of: 4 product images (various angles/contexts), 3 feature highlight graphics with copy overlay, 3 caption-only posts with link. Instagram + LinkedIn formats. (Split Route)
+	2. Develop a 30-second TV commercial storyboard for Veltro Hybrid (8 frames with scene descriptions) and the full VO script including super text and end card copy. Cinematic and emotional. (Gemini)
+	3. Produce a luxury spec sheet for AuroraX Signature edition. Hero full-bleed interior image, 2 feature detail images, structured spec table (exterior/interior/powertrain), premium editorial paragraph per section. (Split Route)
+	4. Design a 6-screen ambient loop for showroom displays. Screens 1,3,5: atmospheric vehicle imagery. Screens 2,4,6: rotating fact/feature cards with headline + 20-word body + small icon. 16:9 format. (Firefly)
+
+
+
+"Sector": "PHARMA"
+"Content": "Image"
+"Prompt Examples & Best Provider":
+	1. Generate a photorealistic hero image of ZYNVARA 200mg tablets in a clean white studio, exact Pantone 485 brand red, pharmacy-grade pack visible, compliant with FDA promotional materials guidelines. (FIREFLY)
+	2. Create a diverse group of patients living active lives post-treatment for a rheumatoid arthritis campaign — warm natural light, authentic feel, no medical devices visible, ethically sourced imagery. (FIREFLY)
+	3. Illustrate the JAK-STAT signalling pathway suppressed by RENOVEXIN, scientific cross-section style, cell membrane cutaway, accurate receptor labelling, clean infographic palette. (FIREFLY)
+	4. Design a 300x600px digital banner for ESMO congress. Drug brand CALYVEX, coral gradient background, HCP-targeted, minimalist, include space for ISI text block at bottom. (FIREFLY)
+
+
+"Sector": "PHARMA"
+"Content": "text"
+"Prompt Examples & Best Provider":
+	1. Write the clinical evidence section for a HCP detail aid for CALYVEX (calmivastatin). Include Phase III trial results, NNT, adverse event profile, and black box warning language. MLR-ready tone. (GEMINI)
+	Write a 3-email nurture sequence for newly diagnosed Type 2 diabetes patients starting GLUCERA therapy. Empathetic tone, FDA-compliant, no promotional efficacy claims in emails 2-3, include adherence tips. (GEMINI)
+	3. Draft a 250-word abstract for EULAR 2025 on Phase II RENOVEXIN data in PsA patients. IMRD structure, p-values, confidence intervals, structured conclusion. Scientific voice. (GEMINI)
+	4. Write 5 LinkedIn posts for a medical affairs team promoting CALYVEX data. Each post: 150 words, links to study, hashtag strategy, fair-balance reminder, professional tone. (GEMINI)
+	5. Write a conversational IVR/voice assistant script for patient medication reminders for GLUCERA. Friendly, brief, includes dose info, side effect prompt, and escalation path to nurse hotline. (GEMINI)
+
+
+"Sector": "PHARMA"
+"Content": "Image & text"
+"Prompt Examples & Best Provider": 
+	1. Produce a double-page spread journal ad for ZYNVARA. Left page: hero lifestyle image of patient gardening, warm light, diverse. Right page: efficacy headline, 3 key data callouts, ISI block, brand footer. MLR-ready. (SPLIT ROUTE)
+	2. Build a 6-slide interactive eDetail for CALYVEX targeting oncologists. Each slide needs a clinical image or chart placeholder and 80-word copy block. Slide 3: KOL quote visual treatment. (GEMINI)
+	3. Design and write a tri-fold brochure for RENOVEXIN patients. Panel 1: brand hero image. Panel 2: how it works with anatomical illustration. Panel 3: starting therapy instructions, FDA-compliant patient copy. (SPLIT ROUTE)
+
+
+Analyze all the above utterancies, our ai model main focus is on pharma and automotive industries only, so our semantic router should also do its job in picking the right LLM. We need to follow the 80-20 rule. 80% of our utterancies should contain pharma and automotive & 20% should contain general ones. Check the routes.yaml file thoroughly and do the necessary changes for utterancies. 
+
+
