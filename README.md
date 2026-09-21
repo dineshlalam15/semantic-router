@@ -10,14 +10,14 @@ A decoupled, configuration-driven **Semantic LLM Router** in Python that classif
 ## How It Works
 
 ```mermaid
-flowchart LR
+flowchart TD
     A["💬 User Query"]:::query --> B["⚡ Generate Embeddings"]:::embed
     B --> C["🔢 Query Vector"]:::vector
-    C --> D["⚖️ Compare with Stored\nRoute Embeddings"]:::compare
-    E[("📚 Pre-computed\nRoute Embeddings")]:::stored --> D
-    D --> F["🎯 Identify Best\nMatching Domain"]:::domain
-    F --> G["🤖 Select Optimal\nModel & Provider"]:::model
-    G --> H["🚀 Recommended\nModel Output"]:::output
+    C --> D["⚖️ Compare with Stored Route Embeddings"]:::compare
+    E[("📚 Pre-computed Route Embeddings")]:::stored --> D
+    D --> F["🎯 Identify Best Matching Domain"]:::domain
+    F --> G["🤖 Select Optimal Model & Provider"]:::model
+    G --> H["🚀 Recommended Model Output"]:::output
 
     classDef query fill:#4F46E5,stroke:#3730A3,stroke-width:2px,color:#FFFFFF,font-size:13px,font-weight:bold
     classDef embed fill:#0284C7,stroke:#0369A1,stroke-width:2px,color:#FFFFFF,font-size:13px,font-weight:bold
