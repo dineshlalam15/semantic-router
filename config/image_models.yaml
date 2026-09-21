@@ -1,20 +1,82 @@
-# Image Models Configuration: Best-in-market LLM models for image generation.
-# Providers: Anthropic, OpenAI, Gemini, LiteLLM + Firefly (for automotive & pharma visuals)
-# Metadata: cost (USD per image or per 1K tokens), avg_latency_ms.
+# Image Models Configuration: Best-in-market models for marketing visual production and design collateral.
+# Providers: OpenAI, Gemini, LiteLLM, Firefly.
+# Note: Anthropic provides text/multimodal reasoning models but does not offer native image generation models.
+# Metadata: cost (USD per image), avg_latency_ms.
 
 models:
 
+  # ── OpenAI Models ───────────────────────────────────────────────────────────
+  - provider: "OpenAI"
+    model_name: "dall-e-3"
+    domains:
+      - "commercial_visual_production"
+      - "marketing_collateral_and_layout"
+    capabilities:
+      - "photorealism"
+      - "creative_art_styles"
+      - "prompt_following"
+      - "commercial_hero_shots"
+    metadata:
+      cost_per_image: 0.08
+      avg_latency_ms: 5000
+      context_window_k: null
+
+  # ── Gemini Models ───────────────────────────────────────────────────────────
+  - provider: "Gemini"
+    model_name: "imagen-3"
+    domains:
+      - "commercial_visual_production"
+      - "marketing_collateral_and_layout"
+    capabilities:
+      - "high_fidelity_photorealism"
+      - "crisp_text_rendering"
+      - "e-commerce_pack_shots"
+      - "diverse_representation"
+    metadata:
+      cost_per_image: 0.04
+      avg_latency_ms: 4000
+      context_window_k: null
+
+  # ── LiteLLM Models (Open-Weights Gateways) ─────────────────────────────────
+  - provider: "LiteLLM"
+    model_name: "flux-1-dev"
+    domains:
+      - "commercial_visual_production"
+      - "marketing_collateral_and_layout"
+    capabilities:
+      - "state_of_the_art_photorealism"
+      - "fine_typography_in_images"
+      - "commercial_product_renders"
+      - "open_weights_customizable"
+    metadata:
+      cost_per_image: 0.03
+      avg_latency_ms: 4800
+      context_window_k: null
+
+  - provider: "LiteLLM"
+    model_name: "stable-diffusion-3-5-large"
+    domains:
+      - "commercial_visual_production"
+    capabilities:
+      - "creative_art_styles"
+      - "open_weights"
+      - "fine_tunable"
+      - "cinematic_backgrounds"
+    metadata:
+      cost_per_image: 0.01
+      avg_latency_ms: 6500
+      context_window_k: null
+
+  # ── Adobe Firefly Models (Commercially Safe & Vector) ──────────────────────
   - provider: "Firefly"
     model_name: "firefly-image-3"
     domains:
-      - "automotive_visual_production"
-      - "pharma_visual_design"
-      - "image_generation"
+      - "commercial_visual_production"
+      - "marketing_collateral_and_layout"
     capabilities:
-      - "photorealism"
       - "brand_safe_generation"
+      - "commercially_indemnified"
       - "campaign_quality"
-      - "regulatory_compliant_imagery"
     metadata:
       cost_per_image: 0.04
       avg_latency_ms: 4500
@@ -23,8 +85,7 @@ models:
   - provider: "Firefly"
     model_name: "firefly-vector"
     domains:
-      - "automotive_visual_production"
-      - "pharma_visual_design"
+      - "marketing_collateral_and_layout"
     capabilities:
       - "vector_art"
       - "logo_design"
@@ -33,50 +94,4 @@ models:
     metadata:
       cost_per_image: 0.02
       avg_latency_ms: 3000
-      context_window_k: null
-
-
-  - provider: "OpenAI"
-    model_name: "dall-e-3"
-    domains:
-      - "image_generation"
-      - "automotive_visual_production"
-      - "pharma_visual_design"
-    capabilities:
-      - "photorealism"
-      - "creative_art_styles"
-      - "prompt_following"
-    metadata:
-      cost_per_image: 0.08
-      avg_latency_ms: 5000
-      context_window_k: null
-
-
-  - provider: "Gemini"
-    model_name: "imagen-3"
-    domains:
-      - "image_generation"
-      - "automotive_visual_production"
-      - "pharma_visual_design"
-    capabilities:
-      - "photorealism"
-      - "high_fidelity_rendering"
-      - "diverse_representation"
-    metadata:
-      cost_per_image: 0.04
-      avg_latency_ms: 4000
-      context_window_k: null
-
-
-  - provider: "LiteLLM"
-    model_name: "stable-diffusion-3-5-large"
-    domains:
-      - "image_generation"
-    capabilities:
-      - "creative_art_styles"
-      - "open_weights"
-      - "fine_tunable"
-    metadata:
-      cost_per_image: 0.01
-      avg_latency_ms: 6500
       context_window_k: null
