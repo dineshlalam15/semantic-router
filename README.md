@@ -7,68 +7,27 @@ A decoupled, configuration-driven **Semantic LLM Router** in Python that classif
 
 ---
 
-## Architecture Diagram
+## How It Works
 
 ```mermaid
-flowchart TD
-    %% Startup Phase
-    subgraph Startup["Application Startup (Initialization Phase)"]
-        direction TB
-        CFG_R["Load Routes & Utterances Config"]
-        CFG_M["Load Models & Providers Config"]
-        ENC["Initialize Local Embedding Model"]
-        EMB_INIT["Pre-compute Normalized Utterance Embeddings"]
-        MATRIX[("In-Memory Utterance\nVector Matrix")]
-        REGISTRY[("In-Memory Model Registry\n(Domain Mappings)")]
+flowchart LR
+    A["💬 User Query"]:::query --> B["⚡ Generate Embeddings"]:::embed
+    B --> C["🔢 Query Vector"]:::vector
+    C --> D["⚖️ Compare with Stored\nRoute Embeddings"]:::compare
+    E[("📚 Pre-computed\nRoute Embeddings")]:::stored --> D
+    D --> F["🎯 Identify Best\nMatching Domain"]:::domain
+    F --> G["🤖 Select Optimal\nModel & Provider"]:::model
+    G --> H["🚀 Recommended\nModel Output"]:::output
 
-        CFG_R --> ENC
-        ENC --> EMB_INIT
-        EMB_INIT --> MATRIX
-        CFG_M --> REGISTRY
-    end
-
-    %% Runtime Phase
-    subgraph Runtime["Request Lifecycle (Runtime Flow)"]
-        direction TB
-        REQ["Incoming Client Request\nPOST /route"]
-        VAL["Request Validation\n(Pydantic Schema)"]
-        ENCODE_REQ["Encode Query to\nVector Embedding"]
-        NORM["L2-Normalize Query Vector"]
-        SIM["Vectorized Dot Product\n(Cosine Similarity Computation)"]
-        BEST["Identify Best Matching Domain\n(Argmax Similarity)"]
-        SELECT["Select Recommended Model & Provider\n(Domain Lookup)"]
-        RESP["Return JSON Response\n(Domain, Model, Provider)"]
-
-        REQ --> VAL
-        VAL --> ENCODE_REQ
-        ENCODE_REQ --> NORM
-        NORM --> SIM
-        SIM --> BEST
-        BEST --> SELECT
-        SELECT --> RESP
-    end
-
-    %% Interactions
-    MATRIX -.->|Pre-computed Vectors| SIM
-    REGISTRY -.->|Domain Configuration| SELECT
+    classDef query fill:#4F46E5,stroke:#3730A3,stroke-width:2px,color:#FFFFFF,font-size:13px,font-weight:bold
+    classDef embed fill:#0284C7,stroke:#0369A1,stroke-width:2px,color:#FFFFFF,font-size:13px,font-weight:bold
+    classDef vector fill:#0D9488,stroke:#0F766E,stroke-width:2px,color:#FFFFFF,font-size:13px,font-weight:bold
+    classDef stored fill:#D97706,stroke:#B45309,stroke-width:2px,color:#FFFFFF,font-size:13px,font-weight:bold
+    classDef compare fill:#9333EA,stroke:#7E22CE,stroke-width:2px,color:#FFFFFF,font-size:13px,font-weight:bold
+    classDef domain fill:#EA580C,stroke:#C2410C,stroke-width:2px,color:#FFFFFF,font-size:13px,font-weight:bold
+    classDef model fill:#2563EB,stroke:#1D4ED8,stroke-width:2px,color:#FFFFFF,font-size:13px,font-weight:bold
+    classDef output fill:#059669,stroke:#047857,stroke-width:2px,color:#FFFFFF,font-size:13px,font-weight:bold
 ```
-
----
-
-## Core Marketing Domains
-
-All routing logic is 100% dedicated to marketing workloads defined in [`config/routes.yaml`](file:///Users/dineshlalam15/Desktop/semantic-router/config/routes.yaml):
-
-| Domain | Focus & Capabilities | Primary Model Recommendation |
-|---|---|---|
-| **`commercial_visual_production`** | Cinematic campaign hero imagery, 3D product renders, turntable sequences, digital billboards, and showroom loops. | `dall-e-3` (OpenAI) / `imagen-3` (Gemini) / `flux-1-dev` (LiteLLM) |
-| **`marketing_collateral_and_layout`** | Studio pack shots, packaging design, candid customer lifestyle imagery, technical infographics, trade show banners, and brochure layouts. | `dall-e-3` (OpenAI) / `firefly-vector` (Firefly) |
-| **`campaign_and_advertising_copy`** | Launch press releases, configurator UI copy, TV/video commercial scripts, PPC search ad headlines, and promotional messaging. | `claude-3-5-haiku-20241022` (Anthropic) / `gpt-4o` (OpenAI) |
-| **`email_marketing_and_retention`** | Customer onboarding drip sequences, win-back campaigns, churn prevention messaging, and dynamic personalization. | `claude-3-5-haiku-20241022` (Anthropic) / `gemini-2.0-flash` (Gemini) |
-| **`social_media_and_brand_storytelling`** | Omnichannel social launch kits (LinkedIn, Instagram, X, TikTok), viral video hooks, organic social calendars, and brand narratives. | `claude-3-5-haiku-20241022` (Anthropic) / `gpt-4o` (OpenAI) |
-| **`seo_and_content_strategy`** | In-depth SEO pillar articles, keyword intent clustering, Generative Engine Optimization (GEO), and topical authority planning. | `claude-3-5-sonnet-20241022` (Anthropic) / `gemini-1.5-pro` (Gemini) |
-| **`technical_and_evidence_content`** | High-stakes B2B evidence whitepapers, conference research abstracts, enterprise sales presentation decks, and ROI business cases. | `gemini-1.5-pro` (Gemini) / `claude-opus-4-5` (Anthropic) |
-| **`market_intelligence_and_research`** | Competitor teardowns, Ideal Customer Profile (ICP) buyer personas, Voice of Customer (VoC) sentiment mining, and positioning matrices. | `o1` (OpenAI) / `gemini-1.5-pro` (Gemini) / `deepseek-r1` (LiteLLM) |
 
 ---
 
