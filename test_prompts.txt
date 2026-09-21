@@ -1,0 +1,96 @@
+Test Prompts: 
+Generate a high-energy summer sale hero banner for an e-commerce fashion brand. Feature a diverse trio of models in bright beachwear, confetti, bold 60%-OFF overlay, brand font, 1920x600px, CTA button space bottom-right.
+Write SEO-optimised product descriptions for 50 running shoe SKUs. Each: 120 words, benefit-led opening, 5 bullet specs, gender/activity tags, tone: energetic but trustworthy. Output as structured JSON.
+Create 6 Instagram carousel posts for a home décor brand's new Japandi collection. Each slide: product lifestyle image (warm tones, minimal clutter) + 80-word caption with product tag, hashtags, and CTA. Feed aesthetic must be cohesive.
+Write a prompt chaining script for a personalised product recommendation engine. User inputs: past purchases, browse history, budget. Output: ranked list of 10 SKUs with reasoning. Include fallback logic for cold-start users.
+Draft a 600-word CIO market commentary for October 2025. Cover: Fed rate outlook, equity positioning, fixed income view, EM risk flags. Tone: authoritative, measured. Suitable for HNW client newsletter. Avoid forward-looking guarantees.
+Design a data infographic illustrating the UK retirement savings gap by age cohort (25-34, 35-44, 45-54). Bar chart style, brand navy/gold palette, clear annotations, icons for each cohort, white background. LinkedIn-optimised 1200x1200px.
+Write 12 SMS variants for a bank's fraud alert programme. Variants across: transaction type (card/wire/login), urgency level (low/medium/high), customer segment (retail/premium). Max 160 characters each. Compliant with FCA communication standards.
+Produce a 10-slide pitch deck for a private bank's ESG portfolio product. Each slide: data visualisation or conceptual illustration + 60-word headline narrative. Slide 5: risk/return scatter plot. Slide 8: case study with client persona illustration.
+Write a 45-second trailer VO script for a psychological thriller streaming series 'The Hollow Garden'. Build tension progressively: act 1 calm, act 2 unsettling, act 3 explosive. Include timing cues, music direction notes, and super text copy.
+Generate key art for a dark fantasy RPG 'Ashenveil Chronicles'. Central figure: armoured female warrior at a burning fortress gate, dramatic rim lighting, painterly style, muted palette with ember accents, vertical 2:3 format for retail display.
+Write 8 podcast episode descriptions for a true crime series 'Cold Case Club'. Each: 150 words, hook opening sentence, case summary, cliffhanger closing, SEO keywords embedded, Apple Podcasts formatting. Tone: gripping but journalistically responsible.
+Write a detailed brief for an AI music generation tool to create a 90-second brand anthem for a streaming platform. Specify: BPM (120), key (C major), instrumentation (orchestral + electronic hybrid), emotional arc (inspiring → euphoric), stem delivery format.
+Generate a photorealistic hero image for a 5-star Maldives overwater villa resort. Sunrise light, turquoise lagoon, infinity pool in foreground, villa deck with fresh flowers and champagne setup. No people. Aspirational and serene.
+Write a 1,500-word SEO travel guide for 'Hidden Gems of the Alentejo, Portugal'. Structure: intro, 5 destinations (100w each), local food guide, best time to visit, practical tips. Target keyword: 'Alentejo travel guide 2025'. Conversational but expert tone.
+Design 3 re-engagement emails for a luxury travel agency targeting clients who haven't booked in 18 months. Email 1: nostalgia hook with past destination imagery. Email 2: new destination reveal with teaser image. Email 3: limited offer with urgency visual. 200w copy + image per email.
+Write 40 FAQs for an AI airport lounge concierge chatbot. Categories: access eligibility, food & beverage, facilities, flight info, accessibility. Tone: warm, efficient, premium. Include escalation triggers for 5 high-risk query types.
+Write a 900-word technical blog post announcing a new vector database product 'HelixDB'. Cover: the problem it solves, architecture overview, benchmark comparisons, code snippet (Python), and migration guide teaser. Developer-first tone, no marketing fluff.
+Build a prompt template for a 5-email SaaS onboarding sequence that dynamically personalises based on: user role (developer/marketer/executive), company size (SMB/enterprise), and feature adoption signals. Include conditional logic blocks and A/B subject line variants.
+Generate a realistic UI screenshot mockup of a B2B analytics dashboard. Dark mode, sidebar nav, 3 KPI cards top row, line chart centre, data table bottom. Professional and modern. Suitable for landing page hero, 1440x900px.
+Write a 60-second explainer video script for a no-code AI workflow tool 'Flowmatic'. Structure: problem (15s) → solution demo (30s) → CTA (15s). Include scene direction, VO copy, and on-screen text annotations. Tone: approachable, smart.
+Generate photorealistic pack shots for a new plant-based snack brand 'Verdeo'. 4 flavours (sea salt, chilli lime, smoky BBQ, sweet chilli). Each: transparent bag with kraft paper base, bright ingredient photography inset, colourful flavour-coded stripe, white studio background.
+Write complete on-pack copy for 'Verdeo' sea salt variant. Include: product name treatment, tagline, front-of-pack claim (3 words), back-of-pack story (80w), ingredient list placeholder, allergen statement, recycling icons instruction text, and QR code call-to-action.
+Plan and script 5 TikTok videos for 'Verdeo' snack launch targeting Gen Z. Each video: 15-30 seconds, hook in first 2 seconds, trending audio suggestion, visual treatment brief, caption with hashtags, and CTA. Mix formats: recipe hack, taste test, behind the scenes, challenge, influencer collab brief.
+Generate 4 editorial fashion images for a luxury womenswear A/W lookbook. Setting: brutalist Eastern European architecture, overcast natural light, model in sculptural outerwear, film-grain aesthetic, desaturated palette with one accent colour per shot. Magazine-quality.
+Write a 400-word brand manifesto for a new luxury fragrance 'Séquence Noir'. Tone: poetic, aspirational, enigmatic. Reference the sensory journey (bergamot → suede → oud). No clichés. Suitable for press kit, website 'About' page, and in-store experience narration.
+Produce a concept DPS for Séquence Noir fragrance. Left page: full-bleed editorial image (dimly lit studio, model in black, fragrance bottle as sculptural object). Right page: manifesto excerpt (150w), product details, stockist info, brand logo. Broadsheet layout.
+Design a 6-week online course outline on AI literacy for non-technical adult learners. Each week: learning objectives (3), module titles (3), key concepts, one practical activity, and assessment question. Platform: Coursera. Tone: accessible, encouraging.
+Create a visual explainer illustration showing how a neural network learns through backpropagation. Layered architecture diagram, colour-coded weights, animated-style step indicators (Step 1 → 4), accessible to a Year 10 student, white background, clean infographic style.
+Write a 90-second micro-learning script explaining compound interest for a financial literacy app aimed at 16-18 year olds. Use a relatable analogy (snowball/pizza/sports). Include: VO copy, on-screen graphic cues, quiz prompt at end. Tone: peer-level, no condescension.
+Build a complete landing page for a professional data science bootcamp. Includes: hero headline + sub-headline, hero image (diverse students collaborating, warm studio), 3 benefit blocks with icons, curriculum summary, instructor bio section, pricing table, and FAQ (6 Qs). Conversion-optimised.
+
+
+Recommended Models:
+Midjourney
+GPT-4o
+Midjourney
+GPT-4o
+Claude 3.5
+DALL-E 3
+Claude 3.5
+GPT-4o
+Claude 3.5
+Midjourney
+GPT-4o
+Eleven Labs
+Midjourney
+GPT-4o
+GPT-4o
+Claude 3.5
+Claude 3.5
+GPT-4o
+DALL-E 3
+Claude 3.5
+Adobe Firefly
+Claude 3.5
+GPT-4o
+Midjourney
+Claude 3.5
+Midjourney
+Claude 3.5
+DALL-E 3
+Claude 3.5
+GPT-4o
+
+Runner Up Models:
+Claude 3.5
+GPT-4o
+Claude 3.5
+GPT-4o
+Stable Diffusion
+GPT-4o
+Claude 3.5
+GPT-4o
+Stable Diffusion
+Claude 3.5
+GPT-4o
+Adobe Firefly
+Claude 3.5
+Claude 3.5
+GPT-4o
+GPT-4o
+Claude 3.5
+Stable Diffusion
+GPT-4o
+DALL-E 3
+GPT-4o
+Claude 3.5
+Stable Diffusion
+GPT-4o
+Claude 3.5
+GPT-4o
+Stable Diffusion
+GPT-4o
+GPT-4o
+
