@@ -11,59 +11,46 @@ A decoupled, configuration-driven **Semantic LLM Router** in Python that classif
 
 ```mermaid
 flowchart TD
-    subgraph Client["Client Application"]
-        A["User Query\n(e.g., 'Write a 600-word launch press release...')"]
+    %% Startup Phase
+    subgraph Startup["Application Startup (Initialization Phase)"]
+        direction TB
+        CFG_R["Load Routes & Utterances Config"]
+        CFG_M["Load Models & Providers Config"]
+        ENC["Initialize Local Embedding Model"]
+        EMB_INIT["Pre-compute Normalized Utterance Embeddings"]
+        MATRIX[("In-Memory Utterance\nVector Matrix")]
+        REGISTRY[("In-Memory Model Registry\n(Domain Mappings)")]
+
+        CFG_R --> ENC
+        ENC --> EMB_INIT
+        EMB_INIT --> MATRIX
+        CFG_M --> REGISTRY
     end
 
-    subgraph API["FastAPI Application (app/main.py)"]
-        B["POST /route"]
-        C["Pydantic Validation (app/schemas.py)"]
+    %% Runtime Phase
+    subgraph Runtime["Request Lifecycle (Runtime Flow)"]
+        direction TB
+        REQ["Incoming Client Request\nPOST /route"]
+        VAL["Request Validation\n(Pydantic Schema)"]
+        ENCODE_REQ["Encode Query to\nVector Embedding"]
+        NORM["L2-Normalize Query Vector"]
+        SIM["Vectorized Dot Product\n(Cosine Similarity Computation)"]
+        BEST["Identify Best Matching Domain\n(Argmax Similarity)"]
+        SELECT["Select Recommended Model & Provider\n(Domain Lookup)"]
+        RESP["Return JSON Response\n(Domain, Model, Provider)"]
+
+        REQ --> VAL
+        VAL --> ENCODE_REQ
+        ENCODE_REQ --> NORM
+        NORM --> SIM
+        SIM --> BEST
+        BEST --> SELECT
+        SELECT --> RESP
     end
 
-    subgraph Core["Semantic Router Engine (app/router.py)"]
-        D["HuggingFace Encoder\n(sentence-transformers/all-MiniLM-L6-v2)"]
-        E["Normalized Query Vector\n(1 × 384)"]
-        F["Vectorized Cosine Similarity\nnp.dot(Matrix, Query_Vec)"]
-        G["Highest Match Domain Detection\n(Argmax Similarity)"]
-    end
-
-    subgraph Storage["Startup Pre-Computed Configuration"]
-        H[("config/routes.yaml\n• 8 Marketing Domains\n• 100+ Curated Utterances")]
-        I["Pre-computed L2-Normalized\nUtterance Embedding Matrix (N × 384)"]
-        J[("config/text_models.yaml\nText Models & Capabilities")]
-        K[("config/image_models.yaml\nImage Models & Capabilities")]
-        L["Merged Model Registry\n(Text + Image Models)"]
-    end
-
-    subgraph Providers["Supported Providers & Models"]
-        M["Anthropic\n• Claude 3.5 Sonnet\n• Claude 3.5 Haiku\n• Claude Opus 4.5"]
-        N["OpenAI\n• GPT-4o / GPT-4o mini\n• o1 / o3-mini\n• DALL-E 3"]
-        O["Gemini\n• Gemini 2.0 Flash\n• Gemini 1.5 Pro / Flash\n• Imagen 3"]
-        P["LiteLLM & Firefly\n• DeepSeek-R1 / LLaMA 3.3\n• FLUX.1 / SD 3.5\n• Firefly Image 3 / Vector"]
-    end
-
-    subgraph Response["API Response"]
-        Q["JSON Routing Decision\n{\n  'query': ...,\n  'domain': ...,\n  'recommended_model': ...,\n  'llm_provider': ...\n}"]
-    end
-
-    %% Startup Flow
-    H -->|Load Utterances| D
-    D -->|Startup Embedding| I
-    J --> L
-    K --> L
-    I -.->|In-Memory Dot Product| F
-
-    %% Request Flow
-    A --> B
-    B --> C
-    C --> D
-    D --> E
-    E --> F
-    F --> G
-    G -->|Domain Lookup| L
-    L --> Providers
-    Providers --> Q
-    Q --> Client
+    %% Interactions
+    MATRIX -.->|Pre-computed Vectors| SIM
+    REGISTRY -.->|Domain Configuration| SELECT
 ```
 
 ---
