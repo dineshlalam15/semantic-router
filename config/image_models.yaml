@@ -5,7 +5,6 @@
 
 models:
 
-  # ── OpenAI Models ───────────────────────────────────────────────────────────
   - provider: "OpenAI"
     model_name: "dall-e-3"
     domains:
@@ -21,7 +20,7 @@ models:
       avg_latency_ms: 5000
       context_window_k: null
 
-  # ── Gemini Models ───────────────────────────────────────────────────────────
+
   - provider: "Gemini"
     model_name: "imagen-3"
     domains:
@@ -37,7 +36,7 @@ models:
       avg_latency_ms: 4000
       context_window_k: null
 
-  # ── LiteLLM Models (Open-Weights Gateways) ─────────────────────────────────
+
   - provider: "LiteLLM"
     model_name: "flux-1-dev"
     domains:
@@ -67,7 +66,7 @@ models:
       avg_latency_ms: 6500
       context_window_k: null
 
-  # ── Adobe Firefly Models (Commercially Safe & Vector) ──────────────────────
+
   - provider: "Firefly"
     model_name: "firefly-image-3"
     domains:

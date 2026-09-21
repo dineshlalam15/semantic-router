@@ -4,7 +4,6 @@
 
 models:
 
-  # ── Anthropic Models ────────────────────────────────────────────────────────
   - provider: "Anthropic"
     model_name: "claude-3-5-haiku-20241022"
     domains:
@@ -55,7 +54,7 @@ models:
       avg_latency_ms: 3200
       context_window_k: 200
 
-  # ── OpenAI Models ───────────────────────────────────────────────────────────
+
   - provider: "OpenAI"
     model_name: "gpt-4o"
     domains:
@@ -118,7 +117,7 @@ models:
       avg_latency_ms: 2200
       context_window_k: 200
 
-  # ── Gemini Models ───────────────────────────────────────────────────────────
+
   - provider: "Gemini"
     model_name: "gemini-2.0-flash"
     domains:
@@ -167,7 +166,7 @@ models:
       avg_latency_ms: 450
       context_window_k: 1000
 
-  # ── LiteLLM Models (Open-Weights & Specialized Gateways) ───────────────────
+
   - provider: "LiteLLM"
     model_name: "deepseek-r1"
     domains:
