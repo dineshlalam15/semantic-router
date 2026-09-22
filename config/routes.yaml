@@ -62,7 +62,6 @@ routes:
       - "Craft a direct-response landing page copy structure with an irresistible above-the-fold hook and trust badges."
       - "Write an engaging radio commercial script (30 seconds) promoting a seasonal summer sale with a catchy promotional tagline."
 
-  # ── 4. Email Marketing & Retention ──────────────────────────────────────────
   - name: "email_marketing_and_retention"
     description: "Lifecycle marketing, CRM workflows, email nurture sequences, customer onboarding drips, re-engagement campaigns, and churn prevention messaging."
     priority: 9
