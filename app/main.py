@@ -48,7 +48,8 @@ async def route_query(payload: RouteRequest) -> RouteResponse:
     if router is None:
         raise HTTPException(status_code=503, detail="Router not initialized")
     try:
-        return router.route(payload.query)
+        include_avail = payload.include_available_models if payload.include_available_models is not None else True
+        return router.route(payload.query, include_available=include_avail)
     except Exception as exc:
         logger.error(f"Routing failed: {exc}")
         raise HTTPException(status_code=500, detail=str(exc))

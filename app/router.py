@@ -6,7 +6,8 @@ from typing import List, Dict, Any
 import numpy as np
 import yaml
 from semantic_router.encoders import HuggingFaceEncoder
-from app.schemas import RouteResponse
+from app.schemas import RouteResponse, AvailableModel
+from app.filter import _filter_by_metadata
 
 logger = logging.getLogger(__name__)
 
@@ -24,12 +25,12 @@ class SemanticRouter:
         self.text_models_path = Path(text_models_path)
         self.image_models_path = Path(image_models_path)
 
-        # 1. Load routes from YAML
+        # Load routes from YAML
         with open(self.routes_path, "r", encoding="utf-8") as f:
             routes_data = yaml.safe_load(f) or {}
         self.routes: List[Dict[str, Any]] = routes_data.get("routes", [])
 
-        # 2. Load and merge text + image models at startup
+        # Load and merge text + image models at startup
         with open(self.text_models_path, "r", encoding="utf-8") as f:
             text_models_data = yaml.safe_load(f) or {}
         with open(self.image_models_path, "r", encoding="utf-8") as f:
@@ -38,7 +39,7 @@ class SemanticRouter:
             text_models_data.get("models", []) + image_models_data.get("models", [])
         )
 
-        # 3. Initialize Hugging Face encoder
+        # Initialize Hugging Face encoder
         logger.info(
             "Initializing HuggingFaceEncoder | text_models=%s image_models=%s",
             self.text_models_path,
@@ -46,7 +47,7 @@ class SemanticRouter:
         )
         self.encoder = HuggingFaceEncoder()
 
-        # 4. Flatten utterances and map them to their domain names
+        # Flatten utterances and map them to their domain names
         self._utterances: List[str] = []
         self._domains: List[str] = []
         for r in self.routes:
@@ -55,7 +56,7 @@ class SemanticRouter:
                 self._utterances.append(utt)
                 self._domains.append(domain_name)
 
-        # 5. Pre-compute normalized embeddings for all utterances at startup
+        # Pre-compute normalized embeddings for all utterances at startup
         logger.info(f"Pre-computing embeddings for {len(self._utterances)} utterances...")
         self._matrix = self._encode_normalized(self._utterances)
 
@@ -73,22 +74,37 @@ class SemanticRouter:
         norms = np.where(norms == 0, 1.0, norms)
         return arr / norms
 
-    def route(self, query: str) -> RouteResponse:
-        """Finds the best matching domain and returns the recommended model."""
-        # Embed query and find best matching domain via cosine similarity
+
+    def route(self, query: str, include_available: bool = True) -> RouteResponse:
+        """
+        Finds the best matching domain and returns the recommended model.
+        """
+
+        # Embed the query and find best matching domain via cosine similarity. 
         query_vec = self._encode_normalized([query])[0]
         similarities = np.dot(self._matrix, query_vec)
         best_idx = int(np.argmax(similarities))
         domain = self._domains[best_idx]
 
-        # Lookup model for the domain in models.yaml
-        model = next((m for m in self.models if domain in m.get("domains", [])), None)
-        if not model:
+        # Filter all the available models in our application that matches our domain. 
+        candidate_models = [m for m in self.models if domain in m.get("domains", [])]
+        if not candidate_models:
             raise ValueError(f"No configured model found for domain '{domain}'")
+
+        # Finding the best optimal model out of all the candidate models. 
+        model = _filter_by_metadata(candidate_models, query=query)
+
+        available_models = None
+        if include_available:
+            available_models = [
+                AvailableModel(model=m["model_name"], provider=m["provider"])
+                for m in candidate_models
+            ]
 
         return RouteResponse(
             query=query,
             domain=domain,
+            available_models=available_models,
             recommended_model=model["model_name"],
-            llm_provider=model["provider"],
+            llm_provider=model["provider"]
         )
