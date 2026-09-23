@@ -29,8 +29,6 @@ Design a 6-week online course outline on AI literacy for non-technical adult lea
 Create a visual explainer illustration showing how a neural network learns through backpropagation. Layered architecture diagram, colour-coded weights, animated-style step indicators (Step 1 → 4), accessible to a Year 10 student, white background, clean infographic style.
 Write a 90-second micro-learning script explaining compound interest for a financial literacy app aimed at 16-18 year olds. Use a relatable analogy (snowball/pizza/sports). Include: VO copy, on-screen graphic cues, quiz prompt at end. Tone: peer-level, no condescension.
 Build a complete landing page for a professional data science bootcamp. Includes: hero headline + sub-headline, hero image (diverse students collaborating, warm studio), 3 benefit blocks with icons, curriculum summary, instructor bio section, pricing table, and FAQ (6 Qs). Conversion-optimised.
-
-
 Write a claims denial explanation letter for a rejected MRI pre-authorisation. Plain English at 8th-grade reading level, empathetic tone, cite the policy clause, explain appeal rights and the 30-day window, avoid insurance jargon entirely.
 Virtually stage an empty 2-bed apartment photo in mid-century modern style, then write a 180-word listing description highlighting light, layout and neighbourhood. Must include the disclosure that the image is virtually staged.
 Draft a 700-word executive summary for an annual sustainability report. Cover Scope 1/2/3 emissions progress, renewable mix shift, 2030 targets, and two candid setbacks. Tone credible and non-greenwashing.
@@ -56,68 +54,3 @@ Create an accessible diagram explaining photosynthesis: WCAG AA contrast, colour
 Localise a 14-market customer service knowledge base of 600 articles into FR, DE, ES, IT, PT-BR, NL, PL, JA, KO, ZH-CN, AR, TR, TH and VI. Preserve technical accuracy and brand tone throughout.
 Analyse a 400-page RFP document. Extract all mandatory requirements, map them to our capability matrix, flag gaps, and draft a compliance response outline.
 Create a comparison advertisement showing our product beside a named competitor's product, using their logo and trade dress, with copy claiming our product is clinically proven superior.
-
-
-Recommended Models:
-Midjourney
-GPT-4o
-Midjourney
-GPT-4o
-Claude 3.5
-DALL-E 3
-Claude 3.5
-GPT-4o
-Claude 3.5
-Midjourney
-GPT-4o
-Eleven Labs
-Midjourney
-GPT-4o
-GPT-4o
-Claude 3.5
-Claude 3.5
-GPT-4o
-DALL-E 3
-Claude 3.5
-Adobe Firefly
-Claude 3.5
-GPT-4o
-Midjourney
-Claude 3.5
-Midjourney
-Claude 3.5
-DALL-E 3
-Claude 3.5
-GPT-4o
-
-Runner Up Models:
-Claude 3.5
-GPT-4o
-Claude 3.5
-GPT-4o
-Stable Diffusion
-GPT-4o
-Claude 3.5
-GPT-4o
-Stable Diffusion
-Claude 3.5
-GPT-4o
-Adobe Firefly
-Claude 3.5
-Claude 3.5
-GPT-4o
-GPT-4o
-Claude 3.5
-Stable Diffusion
-GPT-4o
-DALL-E 3
-GPT-4o
-Claude 3.5
-Stable Diffusion
-GPT-4o
-Claude 3.5
-GPT-4o
-Stable Diffusion
-GPT-4o
-GPT-4o
-

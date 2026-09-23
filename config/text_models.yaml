@@ -5,7 +5,7 @@
 models:
 
   - provider: "Anthropic"
-    model_name: "claude-3-5-haiku-20241022"
+    model_name: "claude-haiku-4-5-20251001"
     domains:
       - "campaign_and_advertising_copy"
       - "email_marketing_and_retention"
@@ -22,7 +22,7 @@ models:
       context_window_k: 200
 
   - provider: "Anthropic"
-    model_name: "claude-3-5-sonnet-20241022"
+    model_name: "claude-sonnet-5"
     domains:
       - "seo_and_content_strategy"
       - "technical_and_evidence_content"
@@ -33,13 +33,13 @@ models:
       - "topical_authority"
       - "data_synthesis"
     metadata:
-      cost_per_1k_input_tokens: 0.003
-      cost_per_1k_output_tokens: 0.015
-      avg_latency_ms: 1800
-      context_window_k: 200
+      cost_per_1k_input_tokens: 0.002
+      cost_per_1k_output_tokens: 0.010
+      avg_latency_ms: 1600
+      context_window_k: 1000
 
   - provider: "Anthropic"
-    model_name: "claude-opus-4-5"
+    model_name: "claude-opus-5-5"
     domains:
       - "technical_and_evidence_content"
       - "market_intelligence_and_research"
@@ -49,14 +49,14 @@ models:
       - "strategic_positioning"
       - "high_stakes_narrative"
     metadata:
-      cost_per_1k_input_tokens: 0.015
-      cost_per_1k_output_tokens: 0.075
+      cost_per_1k_input_tokens: 0.004
+      cost_per_1k_output_tokens: 0.020
       avg_latency_ms: 3200
-      context_window_k: 200
+      context_window_k: 1000
 
 
   - provider: "OpenAI"
-    model_name: "gpt-4o"
+    model_name: "gpt-5.1"
     domains:
       - "campaign_and_advertising_copy"
       - "social_media_and_brand_storytelling"
@@ -67,13 +67,13 @@ models:
       - "structured_output"
       - "brand_storytelling"
     metadata:
-      cost_per_1k_input_tokens: 0.0025
-      cost_per_1k_output_tokens: 0.010
-      avg_latency_ms: 1400
-      context_window_k: 128
+      cost_per_1k_input_tokens: 0.002
+      cost_per_1k_output_tokens: 0.008
+      avg_latency_ms: 1200
+      context_window_k: 256
 
   - provider: "OpenAI"
-    model_name: "gpt-4o-mini"
+    model_name: "gpt-5.1-instant"
     domains:
       - "email_marketing_and_retention"
       - "social_media_and_brand_storytelling"
@@ -82,44 +82,33 @@ models:
       - "cost_efficient_personalization"
       - "fast_inference"
     metadata:
-      cost_per_1k_input_tokens: 0.00015
-      cost_per_1k_output_tokens: 0.0006
-      avg_latency_ms: 500
-      context_window_k: 128
+      cost_per_1k_input_tokens: 0.0001
+      cost_per_1k_output_tokens: 0.0004
+      avg_latency_ms: 400
+      context_window_k: 256
 
   - provider: "OpenAI"
-    model_name: "o1"
+    model_name: "gpt-5.1-thinking"
     domains:
       - "market_intelligence_and_research"
+      - "technical_and_evidence_content"
     capabilities:
       - "deep_reasoning"
       - "competitive_analysis"
       - "quantitative_research"
       - "swot_modeling"
-    metadata:
-      cost_per_1k_input_tokens: 0.015
-      cost_per_1k_output_tokens: 0.060
-      avg_latency_ms: 8000
-      context_window_k: 200
-
-  - provider: "OpenAI"
-    model_name: "o3-mini"
-    domains:
-      - "market_intelligence_and_research"
-      - "technical_and_evidence_content"
-    capabilities:
       - "fast_chain_of_thought"
       - "market_modeling"
       - "data_analysis"
     metadata:
-      cost_per_1k_input_tokens: 0.0011
-      cost_per_1k_output_tokens: 0.0044
-      avg_latency_ms: 2200
-      context_window_k: 200
+      cost_per_1k_input_tokens: 0.010
+      cost_per_1k_output_tokens: 0.040
+      avg_latency_ms: 5000
+      context_window_k: 256
 
 
   - provider: "Gemini"
-    model_name: "gemini-2.0-flash"
+    model_name: "gemini-2.5-flash"
     domains:
       - "email_marketing_and_retention"
       - "campaign_and_advertising_copy"
@@ -135,7 +124,7 @@ models:
       context_window_k: 1000
 
   - provider: "Gemini"
-    model_name: "gemini-1.5-pro"
+    model_name: "gemini-2.5-pro"
     domains:
       - "technical_and_evidence_content"
       - "market_intelligence_and_research"
@@ -152,7 +141,7 @@ models:
       context_window_k: 2000
 
   - provider: "Gemini"
-    model_name: "gemini-1.5-flash"
+    model_name: "gemini-2.5-flash-lite"
     domains:
       - "email_marketing_and_retention"
       - "campaign_and_advertising_copy"
@@ -161,9 +150,9 @@ models:
       - "high_volume_copy"
       - "low_cost"
     metadata:
-      cost_per_1k_input_tokens: 0.000075
-      cost_per_1k_output_tokens: 0.0003
-      avg_latency_ms: 450
+      cost_per_1k_input_tokens: 0.00005
+      cost_per_1k_output_tokens: 0.0002
+      avg_latency_ms: 350
       context_window_k: 1000
 
 
@@ -183,23 +172,7 @@ models:
       context_window_k: 128
 
   - provider: "LiteLLM"
-    model_name: "llama-3.3-70b-instruct"
-    domains:
-      - "campaign_and_advertising_copy"
-      - "social_media_and_brand_storytelling"
-      - "seo_and_content_strategy"
-    capabilities:
-      - "open_weights_flagship"
-      - "commercial_copywriting"
-      - "social_campaigns"
-    metadata:
-      cost_per_1k_input_tokens: 0.0004
-      cost_per_1k_output_tokens: 0.0008
-      avg_latency_ms: 1100
-      context_window_k: 128
-
-  - provider: "LiteLLM"
-    model_name: "qwen-2.5-coder-32b"
+    model_name: "qwen3-coder-32b-instruct"
     domains:
       - "seo_and_content_strategy"
     capabilities:
@@ -210,4 +183,50 @@ models:
       cost_per_1k_input_tokens: 0.0002
       cost_per_1k_output_tokens: 0.0006
       avg_latency_ms: 1200
+      context_window_k: 256
+
+  - provider: "LiteLLM"
+    model_name: "llama-4-scout"
+    domains:
+      - "campaign_and_advertising_copy"
+      - "social_media_and_brand_storytelling"
+      - "seo_and_content_strategy"
+    capabilities:
+      - "open_weights_flagship"
+      - "commercial_copywriting"
+      - "social_campaigns"
+    metadata:
+      cost_per_1k_input_tokens: 0.0003
+      cost_per_1k_output_tokens: 0.0006
+      avg_latency_ms: 900
+      context_window_k: 10000
+
+  - provider: "LiteLLM"
+    model_name: "llama-4-maverick"
+    domains:
+      - "technical_and_evidence_content"
+      - "market_intelligence_and_research"
+    capabilities:
+      - "open_weights_reasoning"
+      - "research_synthesis"
+      - "cost_efficient_reasoning"
+    metadata:
+      cost_per_1k_input_tokens: 0.0005
+      cost_per_1k_output_tokens: 0.001
+      avg_latency_ms: 1300
+      context_window_k: 1000
+
+  - provider: "LiteLLM"
+    model_name: "mistral-large-latest"
+    domains:
+      - "seo_and_content_strategy"
+      - "market_intelligence_and_research"
+    capabilities:
+      - "multilingual"
+      - "structured_reasoning"
+      - "enterprise_grade"
+    metadata:
+      cost_per_1k_input_tokens: 0.002
+      cost_per_1k_output_tokens: 0.006
+      avg_latency_ms: 1600
       context_window_k: 128

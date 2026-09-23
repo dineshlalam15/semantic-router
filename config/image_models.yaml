@@ -5,8 +5,9 @@
 
 models:
 
+  # DALL-E 3 was officially replaced by GPT Image in ChatGPT/API (OpenAI, March 2025)
   - provider: "OpenAI"
-    model_name: "dall-e-3"
+    model_name: "gpt-image-1"
     domains:
       - "commercial_visual_production"
       - "marketing_collateral_and_layout"
@@ -16,13 +17,14 @@ models:
       - "prompt_following"
       - "commercial_hero_shots"
     metadata:
-      cost_per_image: 0.08
-      avg_latency_ms: 5000
+      cost_per_image: 0.07
+      avg_latency_ms: 4500
       context_window_k: null
 
 
+  # "Nano Banana Pro" - Gemini's current flagship native image model (replaces Imagen 3/4 line)
   - provider: "Gemini"
-    model_name: "imagen-3"
+    model_name: "gemini-3-pro-image"
     domains:
       - "commercial_visual_production"
       - "marketing_collateral_and_layout"
@@ -38,7 +40,7 @@ models:
 
 
   - provider: "LiteLLM"
-    model_name: "flux-1-dev"
+    model_name: "flux-1.1-pro"
     domains:
       - "commercial_visual_production"
       - "marketing_collateral_and_layout"
@@ -49,9 +51,11 @@ models:
       - "open_weights_customizable"
     metadata:
       cost_per_image: 0.03
-      avg_latency_ms: 4800
+      avg_latency_ms: 4000
       context_window_k: null
 
+  # Could not verify a newer Stability AI flagship release beyond 3.5 Large at time
+  # of writing; re-check stability.ai/news before assuming current.
   - provider: "LiteLLM"
     model_name: "stable-diffusion-3-5-large"
     domains:
@@ -66,31 +70,3 @@ models:
       avg_latency_ms: 6500
       context_window_k: null
 
-
-  - provider: "Firefly"
-    model_name: "firefly-image-3"
-    domains:
-      - "commercial_visual_production"
-      - "marketing_collateral_and_layout"
-    capabilities:
-      - "brand_safe_generation"
-      - "commercially_indemnified"
-      - "campaign_quality"
-    metadata:
-      cost_per_image: 0.04
-      avg_latency_ms: 4500
-      context_window_k: null
-
-  - provider: "Firefly"
-    model_name: "firefly-vector"
-    domains:
-      - "marketing_collateral_and_layout"
-    capabilities:
-      - "vector_art"
-      - "logo_design"
-      - "icon_illustration"
-      - "infographic_generation"
-    metadata:
-      cost_per_image: 0.02
-      avg_latency_ms: 3000
-      context_window_k: null
