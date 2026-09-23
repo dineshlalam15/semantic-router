@@ -1,15 +1,15 @@
-# Text Models Configuration: Best-in-market LLM models for marketing content, copy, and research.
+# Text Models Configuration: Best-in-market LLM models for marketing, content, research, and technical workloads.
 # Providers: Anthropic, OpenAI, Gemini, LiteLLM.
+# Grouped by provider: Anthropic, OpenAI, Gemini, LiteLLM.
 # Metadata: cost (USD per 1K tokens), avg_latency_ms, context_window_k tokens.
 
 models:
+
 
   - provider: "Anthropic"
     model_name: "claude-haiku-4-5-20251001"
     domains:
       - "campaign_and_advertising_copy"
-      - "email_marketing_and_retention"
-      - "social_media_and_brand_storytelling"
     capabilities:
       - "fast_inference"
       - "conversational"
@@ -25,8 +25,8 @@ models:
     model_name: "claude-sonnet-5"
     domains:
       - "seo_and_content_strategy"
-      - "technical_and_evidence_content"
-      - "market_intelligence_and_research"
+      - "ai_prompt_engineering_and_systems"
+      - "educational_and_instructional_design"
     capabilities:
       - "long_form_content"
       - "complex_reasoning"
@@ -42,7 +42,6 @@ models:
     model_name: "claude-opus-5-5"
     domains:
       - "technical_and_evidence_content"
-      - "market_intelligence_and_research"
     capabilities:
       - "executive_writing"
       - "complex_reasoning"
@@ -56,11 +55,23 @@ models:
 
 
   - provider: "OpenAI"
+    model_name: "gpt-5.1-instant"
+    domains:
+      - "email_marketing_and_retention"
+    capabilities:
+      - "high_throughput"
+      - "cost_efficient_personalization"
+      - "fast_inference"
+    metadata:
+      cost_per_1k_input_tokens: 0.0001
+      cost_per_1k_output_tokens: 0.0004
+      avg_latency_ms: 400
+      context_window_k: 256
+
+  - provider: "OpenAI"
     model_name: "gpt-5.1"
     domains:
-      - "campaign_and_advertising_copy"
       - "social_media_and_brand_storytelling"
-      - "seo_and_content_strategy"
     capabilities:
       - "multimodal"
       - "creative_writing"
@@ -73,25 +84,9 @@ models:
       context_window_k: 256
 
   - provider: "OpenAI"
-    model_name: "gpt-5.1-instant"
-    domains:
-      - "email_marketing_and_retention"
-      - "social_media_and_brand_storytelling"
-    capabilities:
-      - "high_throughput"
-      - "cost_efficient_personalization"
-      - "fast_inference"
-    metadata:
-      cost_per_1k_input_tokens: 0.0001
-      cost_per_1k_output_tokens: 0.0004
-      avg_latency_ms: 400
-      context_window_k: 256
-
-  - provider: "OpenAI"
     model_name: "gpt-5.1-thinking"
     domains:
       - "market_intelligence_and_research"
-      - "technical_and_evidence_content"
     capabilities:
       - "deep_reasoning"
       - "competitive_analysis"
@@ -110,9 +105,7 @@ models:
   - provider: "Gemini"
     model_name: "gemini-2.5-flash"
     domains:
-      - "email_marketing_and_retention"
-      - "campaign_and_advertising_copy"
-      - "social_media_and_brand_storytelling"
+      - "conversational_ai_and_customer_operations"
     capabilities:
       - "ultra_fast_inference"
       - "high_throughput"
@@ -126,9 +119,7 @@ models:
   - provider: "Gemini"
     model_name: "gemini-2.5-pro"
     domains:
-      - "technical_and_evidence_content"
-      - "market_intelligence_and_research"
-      - "seo_and_content_strategy"
+      - "legal_regulatory_and_compliance"
     capabilities:
       - "ultra_long_context"
       - "document_synthesis"
@@ -157,6 +148,20 @@ models:
 
 
   - provider: "LiteLLM"
+    model_name: "mistral-large-latest"
+    domains:
+      - "localization_and_multilingual_adaptation"
+    capabilities:
+      - "multilingual"
+      - "structured_reasoning"
+      - "enterprise_grade"
+    metadata:
+      cost_per_1k_input_tokens: 0.002
+      cost_per_1k_output_tokens: 0.006
+      avg_latency_ms: 1600
+      context_window_k: 128
+
+  - provider: "LiteLLM"
     model_name: "deepseek-r1"
     domains:
       - "market_intelligence_and_research"
@@ -174,6 +179,7 @@ models:
   - provider: "LiteLLM"
     model_name: "qwen3-coder-32b-instruct"
     domains:
+      - "ai_prompt_engineering_and_systems"
       - "seo_and_content_strategy"
     capabilities:
       - "technical_seo_code"
@@ -190,7 +196,6 @@ models:
     domains:
       - "campaign_and_advertising_copy"
       - "social_media_and_brand_storytelling"
-      - "seo_and_content_strategy"
     capabilities:
       - "open_weights_flagship"
       - "commercial_copywriting"
@@ -215,18 +220,3 @@ models:
       cost_per_1k_output_tokens: 0.001
       avg_latency_ms: 1300
       context_window_k: 1000
-
-  - provider: "LiteLLM"
-    model_name: "mistral-large-latest"
-    domains:
-      - "seo_and_content_strategy"
-      - "market_intelligence_and_research"
-    capabilities:
-      - "multilingual"
-      - "structured_reasoning"
-      - "enterprise_grade"
-    metadata:
-      cost_per_1k_input_tokens: 0.002
-      cost_per_1k_output_tokens: 0.006
-      avg_latency_ms: 1600
-      context_window_k: 128

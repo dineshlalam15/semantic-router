@@ -1,16 +1,14 @@
-# Image Models Configuration: Best-in-market models for marketing visual production and design collateral.
-# Providers: OpenAI, Gemini, LiteLLM, Firefly.
-# Note: Anthropic provides text/multimodal reasoning models but does not offer native image generation models.
+# Image Models Configuration: Best-in-market models for marketing visual production, design collateral, and cinematic motion.
+# Providers: OpenAI, Gemini, LiteLLM.
+# Grouped by provider: OpenAI, Gemini, LiteLLM.
 # Metadata: cost (USD per image), avg_latency_ms.
 
 models:
 
-  # DALL-E 3 was officially replaced by GPT Image in ChatGPT/API (OpenAI, March 2025)
   - provider: "OpenAI"
     model_name: "gpt-image-1"
     domains:
       - "commercial_visual_production"
-      - "marketing_collateral_and_layout"
     capabilities:
       - "photorealism"
       - "creative_art_styles"
@@ -22,11 +20,9 @@ models:
       context_window_k: null
 
 
-  # "Nano Banana Pro" - Gemini's current flagship native image model (replaces Imagen 3/4 line)
   - provider: "Gemini"
     model_name: "gemini-3-pro-image"
     domains:
-      - "commercial_visual_production"
       - "marketing_collateral_and_layout"
     capabilities:
       - "high_fidelity_photorealism"
@@ -42,6 +38,7 @@ models:
   - provider: "LiteLLM"
     model_name: "flux-1.1-pro"
     domains:
+      - "multimedia_and_motion_production"
       - "commercial_visual_production"
       - "marketing_collateral_and_layout"
     capabilities:
@@ -53,13 +50,12 @@ models:
       cost_per_image: 0.03
       avg_latency_ms: 4000
       context_window_k: null
-
-  # Could not verify a newer Stability AI flagship release beyond 3.5 Large at time
-  # of writing; re-check stability.ai/news before assuming current.
+      
   - provider: "LiteLLM"
     model_name: "stable-diffusion-3-5-large"
     domains:
       - "commercial_visual_production"
+      - "multimedia_and_motion_production"
     capabilities:
       - "creative_art_styles"
       - "open_weights"
@@ -69,4 +65,3 @@ models:
       cost_per_image: 0.01
       avg_latency_ms: 6500
       context_window_k: null
-

@@ -1,4 +1,4 @@
-# Semantic Routes and Utterances Configuration: Core Marketing Workloads. 
+# Semantic Routes and Utterances Configuration: Core Marketing and Content Workloads.
 
 routes:
 
@@ -21,6 +21,11 @@ routes:
       - "Generate an aspirational brand campaign hero image featuring a group of friends using outdoor leisure equipment against a scenic mountain backdrop."
       - "Produce a studio pack shot of a new consumer product line in four distinct seasonal colorways arranged in a 2×2 grid layout."
       - "Create a retail flagship store ambient loop visual of a premium product displayed on an illuminated rotating plinth with sleek brand backdrop."
+      - "Generate a pristine commercial tabletop composition showcasing culinary items with directional side lighting and tactile textures."
+      - "Render an architectural interior perspective featuring contemporary spatial staging, natural daylight, and atmospheric depth."
+      - "Create a series of stylized character model turnarounds with unified visual aesthetics, structural detailing, and consistent line weight."
+      - "Produce a studio beauty visual showcasing product shade gradients and true-to-tone finishes under balanced lighting."
+      - "Generate a photorealistic aerial landscape hero visual of a scenic travel destination with serene morning atmosphere."
 
   - name: "marketing_collateral_and_layout"
     description: "Commercial marketing design assets including studio e-commerce packaging, candid lifestyle imagery, technical process infographics, event banners, and multi-panel print and digital layouts."
@@ -41,6 +46,10 @@ routes:
       - "Produce a tri-fold marketing brochure visual layout: Panel 1 as hero brand cover, Panel 2 as technical workflow diagram, Panel 3 as onboarding steps."
       - "Generate a promotional reminder direct-mail card visual — friendly custom illustration, product badge icon, clean modern typography."
       - "Create a B2B trade publication quarter-page print ad visual depicting a client and consultant strategy session in a contemporary office."
+      - "Design a high-fidelity digital dashboard interface layout with navigational components, summary metrics, and visual data containers."
+      - "Illustrate a comparative statistical infographic visualizing demographic metrics across user cohorts in a publication layout."
+      - "Produce an event promotional poster layout featuring bold typography, headline hierarchy, date blocks, and sponsor partner badges."
+      - "Create a cohesive multi-panel editorial magazine spread pairing full-bleed hero imagery with structured article typography."
 
   - name: "campaign_and_advertising_copy"
     description: "Marketing and commercial copywriting including product launch press releases, configurator UI copy, sales enablement FAQs, TV and video scripts, and multi-channel campaign messaging."
@@ -55,7 +64,7 @@ routes:
       - "Write clear legal footnotes and disclaimer copy for performance benchmarks, battery life claims, and promotional financing terms in a commercial brochure."
       - "Write a 400-word brand editorial for an industry trade magazine highlighting the sustainable manufacturing and ethical supply chain behind a new product."
       - "Generate sales battlecard talking points (one per feature) for a five-pillar product presentation at an upcoming partner launch event."
-      - "Draft a customer-facing guide explaining complex technical capabilities, compatibility requirements, and setup steps in plain accessible language."
+      - "Draft a promotional buyer guide highlighting key product advantages, feature tiers, and onboarding incentives in clear marketing copy."
       - "Write persuasive end-card super-text and call-to-action copy for a 90-second digital video ad promoting an annual subscription discount."
       - "Create a comprehensive product tier comparison matrix with feature annotations and buyer guidance for three enterprise solution packages."
       - "Write 5 high-converting Google responsive search ad headlines and descriptions under 30 characters each."
@@ -78,6 +87,7 @@ routes:
       - "Draft an exclusive VIP customer appreciation email announcing early access to an upcoming premium product release."
       - "Write a customer feedback request email post-purchase asking for a review with an incentive entry for a gift card."
       - "Draft a quarterly customer newsletter template highlighting new product features, customer case study spotlight, and upcoming webinars."
+      - "Design an automated customer milestone nurture sequence with personalized behavioral triggers and conversion benchmarks."
 
   - name: "social_media_and_brand_storytelling"
     description: "Organic social media campaigns, platform-native formats (LinkedIn, Instagram, X, TikTok), viral video scripts, influencer briefs, and brand narrative storytelling."
@@ -95,6 +105,14 @@ routes:
       - "Create a community engagement response guide with tone-of-voice examples for responding to viral customer comments on social channels."
       - "Write an announcement post for LinkedIn celebrating our recognition in the annual Fast Company World Changing Ideas list."
       - "Draft a creative brief for user-generated content (UGC) creators for an unboxing and first-impressions product video."
+      - "Draft a compelling donor appeal narrative and philanthropic campaign message highlighting community impact and giving tiers."
+      - "Write a dramatic narrative voiceover trailer script with precise pacing intervals, sound effect cues, and musical transitions."
+      - "Write compelling episode synopses and metadata summaries for episodic audio programs and serialized shows."
+      - "Produce an episodic podcast or audio narrative script complete with host banter, interview transitions, and musical bridge cues."
+      - "Produce a multi-minute guided audio experience script specifying vocal timbre, pacing pauses, and ambient acoustic layers."
+      - "Formulate a detailed production brief for synthetic audio generation detailing tempo, harmonic progression, instrumentation, and stem formats."
+      - "Compose a voiceover script with explicit timing stamps, emotional modulation cues, and sound effect annotations for video production."
+      - "Write a comprehensive creative brief for audio sound design detailing ambient textures, Foley effects, and musical mood arcs."
 
   - name: "seo_and_content_strategy"
     description: "Search engine optimization, keyword clustering, long-form educational blog articles, topical authority planning, search intent analysis, and content gap evaluation."
@@ -112,6 +130,8 @@ routes:
       - "Identify missing semantic subtopics and LSI keywords needed to rank on page 1 for the query 'best CRM software for small business'."
       - "Write an executive summary and key takeaways block for an in-depth research report to capture search engine zero-click intent."
       - "Create a step-by-step tutorial blog article explaining how to set up automated workflow triggers with clear subheadings."
+      - "Generate standardized, keyword-optimized title conventions and character-constrained attributes for large catalog inventories."
+      - "Author a structured long-form informational guide examining regional landmarks, visitor itineraries, and practical recommendations."
 
   - name: "technical_and_evidence_content"
     description: "High-stakes, evidence-based marketing content including benchmark whitepapers, research abstracts, executive keynote speeches, ROI business cases, and compliance disclaimers."
@@ -129,7 +149,7 @@ routes:
       - "Create an operational cheat-sheet and quick-reference card outlining critical operating procedures, diagnostic codes, and support escalation tiers."
       - "Write a 400-word customer transformation case study for a corporate website illustrating the measurable impact of implementing a new platform."
       - "Produce the executive summary of an independent economic impact (TEI) report for financial decision-makers analyzing multi-year cost savings and payback period."
-      - "Draft an automated voice assistant IVR script for client appointment reminders — friendly, concise, with rescheduling prompts and support escalation."
+      - "Draft an executive summary for an annual sustainability disclosure detailing environmental metrics, targets, and strategic milestones."
 
   - name: "market_intelligence_and_research"
     description: "Strategic market research, competitor teardowns, ideal customer profile (ICP) personas, consumer trend forecasting, Voice of Customer analysis, and positioning matrices."
@@ -147,3 +167,112 @@ routes:
       - "Develop a market entry SWOT analysis evaluating opportunities and risks for launching an AI-powered sales enablement platform."
       - "Extract key Voice of Customer VoC verbatim quotes and organize them into product roadmap feature requests and marketing hooks."
       - "Evaluate competitor brand positioning statements to identify whitespace opportunities for our upcoming brand repositioning."
+      - "Conduct an in-depth industry landscape evaluation mapping market dynamics, emerging disruptors, and strategic positioning opportunities."
+
+  - name: "legal_regulatory_and_compliance"
+    description: "Formal agreements, statutory disclosures, terms and conditions, procurement solicitations, and regulatory compliance communications."
+    priority: 10
+    utterances:
+      - "Review contractual provisions and draft a comparative risk analysis table highlighting non-standard terms."
+      - "Translate formal institutional policy documents into accessible, plain-language summaries for general audiences."
+      - "Extract mandatory compliance obligations and evaluation criteria from comprehensive institutional procurement solicitations."
+      - "Draft formal correspondence detailing decision rationales, regulatory rights, and established appeal procedures."
+      - "Summarize indemnity, liability ceilings, and termination triggers from commercial service agreements into a structured risk overview."
+      - "Conduct a regulatory compliance audit comparing advertised promotional claims against competitive trade dress and legal fair-use limits."
+      - "Draft standard terms of service, privacy disclosures, and data protection compliance clauses for an online digital service."
+      - "Analyze statutory compliance mandates and outline internal governance controls to adhere to regional regulatory requirements."
+      - "Create an executive briefing summarizing licensing constraints, intellectual property covenants, and open-source usage risks."
+      - "Review third-party vendor agreements to verify confidentiality requirements, warranty representations, and indemnification caps."
+      - "Draft formal regulatory disclosure statements and legal notices regarding mandatory policy updates for platform users."
+      - "Formulate an audit checklist evaluating operational adherence to published industry standards and governance guidelines."
+      - "Synthesize complex legislative or contractual clauses into plain-language executive summaries with highlighted liability exposure."
+
+  - name: "conversational_ai_and_customer_operations"
+    description: "Interactive conversational flows, automated support assistants, multi-channel operational notifications, and incident status messaging."
+    priority: 9
+    utterances:
+      - "Design multi-turn conversational dialog trees and escalation thresholds for an automated virtual assistant."
+      - "Compose concise operational notification templates across multiple delivery channels for critical service interruptions."
+      - "Draft comprehensive customer support reference articles addressing service eligibility, troubleshooting, and issue resolution."
+      - "Formulate standardized response playbooks and priority alerts for operational status changes across diverse user segments."
+      - "Write urgent multi-channel customer communications across push alerts, text messaging, and status updates for unexpected service delays."
+      - "Configure conversational triage prompts for live chat support that enforce strict latency constraints and detect escalation keywords."
+      - "Draft an automated voice assistant IVR script for client appointment reminders — friendly, concise, with rescheduling prompts and support escalation."
+      - "Write empathetic, solution-oriented canned response templates for customer service representatives addressing high-severity inquiries."
+      - "Develop an interactive decision tree guiding support agents through diagnostic troubleshooting steps for recurring user complaints."
+      - "Draft contextual in-app push messages and automated status updates notifying users of scheduled system maintenance."
+      - "Create conversational prompt guidelines and fallback dialog handling for edge-case customer queries in an automated chat system."
+      - "Write concise transactional SMS alert templates for time-sensitive account notifications, status verifications, and priority alerts."
+      - "Formulate customer support ticket routing criteria and tiered escalation protocols based on urgency, tier level, and issue severity."
+
+  - name: "ai_prompt_engineering_and_systems"
+    description: "Multi-step prompt chains, agentic workflows, fallback logic, telemetry triage, and structured LLM system design."
+    priority: 10
+    utterances:
+      - "Construct a multi-step prompt chaining sequence with conditional logic gates and fallback states for an autonomous pipeline."
+      - "Draft an automated triage prompt template that evaluates complex telemetry inputs and returns categorized outputs with confidence scores."
+      - "Write a programmatic system prompt enforcing strict schema validation and structured JSON responses for multi-turn workflows."
+      - "Develop technical prompts for an automated classification engine incorporating few-shot demonstrations and decision trees."
+      - "Author a technical architecture walkthrough and benchmark evaluation for a modern high-performance data storage system."
+      - "Design an automated recommendation or personalization prompt pipeline utilizing historical user telemetry and preference attributes."
+      - "Formulate meta-prompts and chain-of-thought instructions designed to optimize multi-agent collaboration and reasoning fidelity."
+      - "Build an automated evaluation and scoring rubric prompt to benchmark model response quality against ground-truth criteria."
+      - "Write system instructions that enforce strict output schemas, token budgets, and structured key-value formatting."
+      - "Design a context-aware retrieval-augmented generation (RAG) prompt template with citation extraction and source grounding constraints."
+      - "Construct recursive prompting chains for decomposing large unstructured documents into hierarchical summaries and key entity graphs."
+      - "Develop deterministic guardrail prompts designed to detect, filter, and reject out-of-domain inputs and prompt injection attempts."
+      - "Create dynamic few-shot prompt templates incorporating adaptive context selection based on query embeddings and semantic similarity."
+
+  - name: "educational_and_instructional_design"
+    description: "Curricula, pedagogical modular structures, conceptual explainer scripts, and accessible educational diagrams."
+    priority: 9
+    utterances:
+      - "Structure a multi-week modular training curriculum complete with measurable learning objectives, conceptual lessons, and assessments."
+      - "Create an intuitive educational diagram breaking down multi-stage mechanical or computational processes with accessible contrast standards."
+      - "Draft an engaging explanatory script utilizing everyday analogies to demystify complex conceptual frameworks for introductory learners."
+      - "Design clear pedagogical illustrations explaining abstract scientific phenomena with colorblind-friendly palettes and descriptive annotations."
+      - "Develop a structured micro-learning module explaining core foundational principles with self-check comprehension questions."
+      - "Write an instructional learning guide with step-by-step conceptual walkthroughs, practice exercises, and solution rationales."
+      - "Formulate formative and summative assessment rubrics with multiple-choice questions, performance criteria, and grading keys."
+      - "Create an interactive educational syllabus outlining prerequisites, weekly milestone deliverables, and core learning competencies."
+      - "Design visual instructional infographics illustrating cause-and-effect relationships and systemic flows for novice learners."
+      - "Draft accessible pedagogical summaries translating complex technical literature into foundational educational material."
+      - "Author a comprehensive workshop facilitator guide containing timed instructional activities, discussion prompts, and recap exercises."
+      - "Develop scaffolded learning modules that progressively increase in analytical complexity across sequential study units."
+      - "Write bite-sized educational video scripts designed to teach fundamental principles in under three minutes with visual cue markers."
+
+  - name: "localization_and_multilingual_adaptation"
+    description: "Cross-market translation, regional terminology adaptation, and culturally nuanced multilingual communications."
+    priority: 9
+    utterances:
+      - "Localize a comprehensive multi-category documentation library across diverse international target markets while preserving technical fidelity."
+      - "Adapt broadcast commentary and scripted announcements into multiple regional languages matching natural spoken cadence."
+      - "Draft concise informational advisories in vernacular languages tailored for low-literacy audiences without borrowing foreign terminology."
+      - "Translate technical support knowledge bases into global regional locales ensuring terminology consistency and appropriate register."
+      - "Compose short informational alert notifications translated across multiple regional native languages for non-English speaking communities."
+      - "Transcreate marketing headlines and promotional messaging for cross-cultural resonance while preserving the original core brand intent."
+      - "Develop a comprehensive multilingual glossary of standardized industry terminology and forbidden translation equivalents."
+      - "Perform cultural adaptation and linguistic quality assurance (LQA) on localized user interface strings and system error prompts."
+      - "Translate detailed user documentation and procedural instructions into multiple target languages ensuring regional idiom accuracy."
+      - "Localize educational training materials and instructional coursework across international cohorts respecting linguistic conventions."
+      - "Adapt informational customer announcements into regional dialects and local vernaculars with culturally sensitive phrasing."
+      - "Formulate multilingual communication guidelines ensuring consistent brand voice, register, and tone across global markets."
+      - "Audit translated content across diverse regional variants to identify semantic drift, awkward syntax, or cultural misalignments."
+
+  - name: "multimedia_and_motion_production"
+    description: "Cinematic video generation, visual motion graphics, 3D animated sequences, and dynamic visual camera motion."
+    priority: 10
+    utterances:
+      - "Generate a short cinematic product video sequence featuring dynamic rotational movement, shallow focus, and controlled lighting sweeps."
+      - "Develop a detailed visual storyboard sequence outlining camera movements, transition effects, and scene staging for a dynamic visual teaser."
+      - "Create visual motion graphics prompts specifying kinetic typography animation, geometric morphing, and color palette transitions."
+      - "Generate descriptive scene treatments for a multi-shot video sequence detailing camera lenses, depth of field, and lighting setups."
+      - "Formulate an animation treatment brief detailing character keyframes, fluid secondary motion, and stylized visual timing."
+      - "Render an 8-second commercial product video featuring smooth rotational turntable camera motion and atmospheric lighting sweeps."
+      - "Generate a high-definition looping cinematic motion background with ambient particle effects and volumetric light rays."
+      - "Produce a dynamic visual motion clip illustrating fluid simulation, physics-based particle collisions, and dimensional lighting."
+      - "Create an animated 3D product showcase sequence highlighting mechanical disassembly and rotational perspective shifts."
+      - "Generate a cinematic slow-motion video capture of liquid splashing against a reflective product surface with macro focal depth."
+      - "Render a drone-perspective landscape fly-through video sequence with steady camera stabilization and golden hour illumination."
+      - "Create stylized 2D and 3D kinetic animation sequences with snappy motion curves and branded color palettes."
+      - "Generate a photorealistic timelapse video sequence showing lighting transitions from daytime daylight to evening twilight."
