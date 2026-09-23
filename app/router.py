@@ -7,7 +7,7 @@ import numpy as np
 import yaml
 from semantic_router.encoders import HuggingFaceEncoder
 from app.schemas import RouteResponse, AvailableModel
-from app.filter import _filter_by_metadata
+from app.filter import _filter_capabilities
 
 logger = logging.getLogger(__name__)
 
@@ -60,6 +60,14 @@ class SemanticRouter:
         logger.info(f"Pre-computing embeddings for {len(self._utterances)} utterances...")
         self._matrix = self._encode_normalized(self._utterances)
 
+        # Dynamically discover and pre-compute embeddings for all unique capabilities across models
+        self.all_capabilities: List[str] = sorted(list({
+            cap for mod in self.models for cap in mod.get("capabilities", [])
+        }))
+        cap_phrases = [element.replace("_", " ").replace("-", " ") for element in self.all_capabilities]
+        logger.info(f"Pre-computing embeddings for {len(self.all_capabilities)} unique model capabilities...")
+        self._cap_matrix = self._encode_normalized(cap_phrases)
+
     def _encode_normalized(self, texts: List[str]) -> np.ndarray:
         """
         Encodes texts into L2-normalized vectors.
@@ -87,12 +95,19 @@ class SemanticRouter:
         domain = self._domains[best_idx]
 
         # Filter all the available models in our application that matches our domain. 
-        candidate_models = [m for m in self.models if domain in m.get("domains", [])]
+        candidate_models = [element for element in self.models if domain in element.get("domains", [])]
         if not candidate_models:
             raise ValueError(f"No configured model found for domain '{domain}'")
 
-        # Finding the best optimal model out of all the candidate models. 
-        model = _filter_by_metadata(candidate_models, query=query)
+        # Dynamically evaluate capability similarity using the query embedding
+        capability_similarities = np.dot(self._cap_matrix, query_vec)
+        capability_scores = dict(zip(self.all_capabilities, (float(score) for score in capability_similarities)))
+
+        # Finding the best optimal model out of all the candidate models based on capabilities. 
+        model = _filter_capabilities(
+            candidate_models,
+            capability_scores=capability_scores,
+        )
 
         available_models = None
         if include_available:
@@ -108,3 +123,4 @@ class SemanticRouter:
             recommended_model=model["model_name"],
             llm_provider=model["provider"]
         )
+

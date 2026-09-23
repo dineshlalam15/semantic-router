@@ -7,18 +7,32 @@ A decoupled, configuration-driven **Semantic LLM Router** in Python that classif
 
 ---
 
-## How It Works
+## Architecture & How It Works
+
+The routing pipeline combines **domain semantic matching** with a **two-stage capability and metadata efficiency selector**:
 
 ```mermaid
 flowchart TD
-    A["💬 User Query"]:::query --> B["⚡ Generate Embeddings"]:::embed
-    B --> C["🔢 Query Vector"]:::vector
-    C --> D["⚖️ Compare with Stored Route Embeddings"]:::compare
-    E[("📚 Pre-computed Route Embeddings")]:::stored --> D
-    D --> F["🎯 Identify Best Matching Domain"]:::domain
-    F --> G["🤖 Select Optimal Model & Provider"]:::model
-    G --> H["🚀 Recommended Model Output"]:::output
-
+    A["💬 User Query"]:::query --> B["⚡ HuggingFace Encoder"]:::embed
+    B --> C["🔢 Normalized Query Vector"]:::vector
+    
+    subgraph Layer1["Layer 1: Domain Classification"]
+        C --> D["⚖️ Utterance Cosine Match"]:::compare
+        E[("📚 Routes Embeddings<br>(routes.yaml)")]:::stored --> D
+        D --> F["🎯 Predicted Domain<br>& Candidate Models"]:::domain
+    end
+    
+    subgraph Layer2["Layer 2: Capability & Metadata Selection"]
+        F --> G{"Capability Match?<br>(similarity >= 0.35)"}
+        C --> H[("🧠 Pre-computed Capability Matrix<br>(text_models.yaml & image_models.yaml)")]
+        H --> G
+        G -- "YES (Specialist Task)" --> I["🏆 Capability Specialist<br>(Highest cumulative capability match)"]:::model
+        G -- "NO (Generic Task)" --> J["⚡ Metadata Efficiency Fallback<br>(Lowest cost & lowest latency)"]:::model
+    end
+    
+    I --> K["🚀 Recommended Model Output"]:::output
+    J --> K
+    
     classDef query fill:#4F46E5,stroke:#3730A3,stroke-width:2px,color:#FFFFFF,font-size:13px,font-weight:bold
     classDef embed fill:#0284C7,stroke:#0369A1,stroke-width:2px,color:#FFFFFF,font-size:13px,font-weight:bold
     classDef vector fill:#0D9488,stroke:#0F766E,stroke-width:2px,color:#FFFFFF,font-size:13px,font-weight:bold
@@ -29,17 +43,30 @@ flowchart TD
     classDef output fill:#059669,stroke:#047857,stroke-width:2px,color:#FFFFFF,font-size:13px,font-weight:bold
 ```
 
+### 1. Domain Classification (Macro-Routing)
+The query is encoded into a 384-dimensional unit vector and compared against 200+ pre-computed route utterances defined in [`config/routes.yaml`](config/routes.yaml). The highest cosine similarity identifies the qualified domain (e.g. `seo_and_content_strategy`, `commercial_visual_production`).
+
+### 2. Dynamic Capability Matching (Micro-Routing)
+- All 60+ unique capabilities across models are dynamically harvested and pre-encoded into an embedding matrix on startup.
+- The router calculates cosine similarity against the query vector in $<0.1\text{ms}$ (zero extra neural network inference).
+- **Cumulative Capability Match**: For each candidate model in the domain, the router sums the scores of all capabilities that meet or exceed the threshold ($\ge 0.35$). The model covering the most and strongest matching capabilities wins.
+
+### 3. Metadata Efficiency Fallback (Cost & Latency Optimization)
+- When a query is standard or generic (no capability reaches $\ge 0.35$), the router avoids arbitrary YAML list ordering.
+- Instead, it selects the winner via **operational efficiency**:
+  $$\text{Efficiency Score} = (\text{Cost Score} \times 0.6) + (\text{Latency Score} \times 0.4)$$
+- Lower cost per unit and faster response times (`avg_latency_ms`) are mathematically rewarded.
+
 ---
 
 ## Supported Providers & Models
 
-Model configurations and metadata live in [`config/text_models.yaml`](file:///Users/dineshlalam15/Desktop/semantic-router/config/text_models.yaml) and [`config/image_models.yaml`](file:///Users/dineshlalam15/Desktop/semantic-router/config/image_models.yaml):
+Model configurations and metadata live in [`config/text_models.yaml`](config/text_models.yaml) and [`config/image_models.yaml`](config/image_models.yaml):
 
-* **Anthropic**: `claude-3-5-sonnet-20241022`, `claude-3-5-haiku-20241022`, `claude-opus-4-5`
-* **OpenAI**: `gpt-4o`, `gpt-4o-mini`, `o1`, `o3-mini`, `dall-e-3`
-* **Gemini**: `gemini-2.0-flash`, `gemini-1.5-pro`, `gemini-1.5-flash`, `imagen-3`
-* **LiteLLM**: `deepseek-r1`, `llama-3.3-70b-instruct`, `qwen-2.5-coder-32b`, `flux-1-dev`, `stable-diffusion-3-5-large`
-* **Adobe Firefly**: `firefly-image-3`, `firefly-vector`
+* **Anthropic**: `claude-haiku-4-5-20251001`, `claude-sonnet-5`, `claude-opus-5-5`
+* **OpenAI**: `gpt-5.1-instant`, `gpt-5.1`, `gpt-5.1-thinking`, `gpt-image-1`
+* **Gemini**: `gemini-2.5-flash-lite`, `gemini-2.5-flash`, `gemini-2.5-pro`, `gemini-3-pro-image`
+* **LiteLLM / Open-Weights**: `qwen3-coder-32b-instruct`, `deepseek-r1`, `llama-4-scout`, `llama-4-maverick`, `mistral-large-latest`, `flux-1.1-pro`, `stable-diffusion-3-5-large`
 
 ---
 
@@ -97,57 +124,75 @@ uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
 
 Once the server is running at `http://localhost:8000`:
 
-### 1. Copywriting Query (cURL)
+### 1. Specialized SEO & JSON Schema Query (Capability Match)
 ```bash
 curl -X POST "http://localhost:8000/route" \
   -H "Content-Type: application/json" \
-  -d '{"query": "Write a 600-word press release for the global commercial launch of an innovative product line."}'
+  -d '{"query": "Write SEO-optimised product descriptions for 50 running shoe SKUs. Output as structured JSON."}'
 ```
 
 **Response:**
 ```json
 {
-  "query": "Write a 600-word press release for the global commercial launch of an innovative product line.",
-  "domain": "campaign_and_advertising_copy",
-  "recommended_model": "claude-3-5-haiku-20241022",
-  "llm_provider": "Anthropic"
+  "query": "Write SEO-optimised product descriptions for 50 running shoe SKUs. Output as structured JSON.",
+  "domain": "seo_and_content_strategy",
+  "available_models": [
+    { "model": "claude-sonnet-5", "provider": "Anthropic" },
+    { "model": "qwen3-coder-32b-instruct", "provider": "LiteLLM" }
+  ],
+  "recommended_model": "qwen3-coder-32b-instruct",
+  "llm_provider": "LiteLLM"
 }
 ```
+*(Selected via capability match for `schema_markup_generation` and `technical_seo_code`)*
 
-### 2. Commercial Visual Production Query (cURL)
+---
+
+### 2. Specialized Image Typography Query (Capability Match)
 ```bash
 curl -X POST "http://localhost:8000/route" \
   -H "Content-Type: application/json" \
-  -d '{"query": "Render a cinematic exterior hero shot of a flagship smart hardware device on a sleek minimalist desk."}'
+  -d '{"query": "Design an event poster with headline SUMMIT 2026. Typography must render perfectly legibly."}'
 ```
 
 **Response:**
 ```json
 {
-  "query": "Render a cinematic exterior hero shot of a flagship smart hardware device on a sleek minimalist desk.",
-  "domain": "commercial_visual_production",
-  "recommended_model": "dall-e-3",
-  "llm_provider": "OpenAI"
+  "query": "Design an event poster with headline SUMMIT 2026. Typography must render perfectly legibly.",
+  "domain": "marketing_collateral_and_layout",
+  "available_models": [
+    { "model": "gemini-3-pro-image", "provider": "Gemini" },
+    { "model": "flux-1.1-pro", "provider": "LiteLLM" }
+  ],
+  "recommended_model": "flux-1.1-pro",
+  "llm_provider": "LiteLLM"
 }
 ```
+*(Selected via capability match for `fine_typography_in_images`)*
 
-### 3. Market Research Query (PowerShell)
-```powershell
-Invoke-RestMethod -Uri "http://localhost:8000/route" `
-  -Method Post `
-  -ContentType "application/json" `
-  -Body '{"query": "Analyze competitor pricing tiers and messaging claims across the top 4 players in project management software."}' | ConvertTo-Json
+---
+
+### 3. Generic Query (Metadata Efficiency Fallback)
+```bash
+curl -X POST "http://localhost:8000/route" \
+  -H "Content-Type: application/json" \
+  -d '{"query": "What is the schedule for our launch next Monday?"}'
 ```
 
 **Response:**
 ```json
 {
-  "query": "Analyze competitor pricing tiers and messaging claims across the top 4 players in project management software.",
-  "domain": "market_intelligence_and_research",
-  "recommended_model": "claude-3-5-sonnet-20241022",
-  "llm_provider": "Anthropic"
+  "query": "What is the schedule for our launch next Monday?",
+  "domain": "social_media_and_brand_storytelling",
+  "available_models": [
+    { "model": "gpt-5.1", "provider": "OpenAI" },
+    { "model": "llama-4-scout", "provider": "LiteLLM" }
+  ],
+  "recommended_model": "llama-4-scout",
+  "llm_provider": "LiteLLM"
 }
 ```
+*(No specialized capability matched $\ge 0.35$; `llama-4-scout` is selected as the cheapest & fastest model)*
 
 ---
 
