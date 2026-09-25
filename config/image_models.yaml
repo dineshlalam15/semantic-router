@@ -9,11 +9,18 @@ models:
     model_name: "gpt-image-1"
     domains:
       - "commercial_visual_production"
+      - "brand_refresh_and_identity_guidelines"
+      - "packaging_and_on_pack_copy"
+      - "travel_and_hospitality_marketing"
+      - "real_estate_listing_and_staging"
     capabilities:
       - "photorealism"
       - "creative_art_styles"
       - "prompt_following"
       - "commercial_hero_shots"
+      - "brand_visuals"
+      - "packaging_rendering"
+      - "hospitality_staging"
     metadata:
       cost_per_image: 0.07
       avg_latency_ms: 4500
@@ -24,11 +31,16 @@ models:
     model_name: "gemini-3-pro-image"
     domains:
       - "marketing_collateral_and_layout"
+      - "brand_refresh_and_identity_guidelines"
+      - "packaging_and_on_pack_copy"
+      - "real_estate_listing_and_staging"
     capabilities:
       - "high_fidelity_photorealism"
       - "crisp_text_rendering"
       - "e-commerce_pack_shots"
       - "diverse_representation"
+      - "brand_system_visuals"
+      - "listing_staging"
     metadata:
       cost_per_image: 0.04
       avg_latency_ms: 4000
@@ -41,26 +53,37 @@ models:
       - "multimedia_and_motion_production"
       - "commercial_visual_production"
       - "marketing_collateral_and_layout"
+      - "packaging_and_on_pack_copy"
+      - "brand_refresh_and_identity_guidelines"
+      - "travel_and_hospitality_marketing"
     capabilities:
       - "state_of_the_art_photorealism"
       - "fine_typography_in_images"
       - "commercial_product_renders"
       - "open_weights_customizable"
+      - "packaging_rendering"
+      - "brand_visuals"
+      - "destination_visuals"
     metadata:
       cost_per_image: 0.03
       avg_latency_ms: 4000
       context_window_k: null
-      
+
   - provider: "LiteLLM"
     model_name: "stable-diffusion-3-5-large"
     domains:
       - "commercial_visual_production"
       - "multimedia_and_motion_production"
+      - "brand_refresh_and_identity_guidelines"
+      - "travel_and_hospitality_marketing"
+      - "real_estate_listing_and_staging"
     capabilities:
       - "creative_art_styles"
       - "open_weights"
       - "fine_tunable"
       - "cinematic_backgrounds"
+      - "brand_direction"
+      - "destination_moodboards"
     metadata:
       cost_per_image: 0.01
       avg_latency_ms: 6500

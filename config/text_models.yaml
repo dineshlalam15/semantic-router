@@ -10,11 +10,18 @@ models:
     model_name: "claude-haiku-4-5-20251001"
     domains:
       - "campaign_and_advertising_copy"
+      - "packaging_and_on_pack_copy"
+      - "brand_refresh_and_identity_guidelines"
+      - "travel_and_hospitality_marketing"
     capabilities:
       - "fast_inference"
       - "conversational"
       - "creative_writing"
       - "ad_copy"
+      - "short_form_copy"
+      - "packaging_copy"
+      - "brand_refresh"
+      - "travel_marketing"
     metadata:
       cost_per_1k_input_tokens: 0.0008
       cost_per_1k_output_tokens: 0.004
@@ -27,11 +34,19 @@ models:
       - "seo_and_content_strategy"
       - "ai_prompt_engineering_and_systems"
       - "educational_and_instructional_design"
+      - "real_estate_listing_and_staging"
+      - "accessibility_and_inclusive_design"
+      - "customer_support_knowledge_base_localization"
+      - "audio_and_voice_production"
     capabilities:
       - "long_form_content"
       - "complex_reasoning"
       - "topical_authority"
       - "data_synthesis"
+      - "accessible_explainer"
+      - "policy_language"
+      - "customer_knowledge"
+      - "voice_script_writing"
     metadata:
       cost_per_1k_input_tokens: 0.002
       cost_per_1k_output_tokens: 0.010
@@ -72,11 +87,15 @@ models:
     model_name: "gpt-5.1"
     domains:
       - "social_media_and_brand_storytelling"
+      - "brand_refresh_and_identity_guidelines"
+      - "packaging_and_on_pack_copy"
     capabilities:
       - "multimodal"
       - "creative_writing"
       - "structured_output"
       - "brand_storytelling"
+      - "brand_refresh"
+      - "product_copy"
     metadata:
       cost_per_1k_input_tokens: 0.002
       cost_per_1k_output_tokens: 0.008
@@ -106,10 +125,16 @@ models:
     model_name: "gemini-2.5-flash"
     domains:
       - "conversational_ai_and_customer_operations"
+      - "audio_and_voice_production"
+      - "travel_and_hospitality_marketing"
+      - "real_estate_listing_and_staging"
     capabilities:
       - "ultra_fast_inference"
       - "high_throughput"
       - "conversational_marketing"
+      - "voice_over"
+      - "travel_content"
+      - "listing_copy"
     metadata:
       cost_per_1k_input_tokens: 0.0001
       cost_per_1k_output_tokens: 0.0004
@@ -120,11 +145,15 @@ models:
     model_name: "gemini-2.5-pro"
     domains:
       - "legal_regulatory_and_compliance"
+      - "customer_support_knowledge_base_localization"
+      - "accessibility_and_inclusive_design"
     capabilities:
       - "ultra_long_context"
       - "document_synthesis"
       - "voice_of_customer_mining"
       - "competitor_portfolio_analysis"
+      - "localized_knowledge_base"
+      - "a11y_readiness"
     metadata:
       cost_per_1k_input_tokens: 0.00125
       cost_per_1k_output_tokens: 0.005
@@ -136,10 +165,14 @@ models:
     domains:
       - "email_marketing_and_retention"
       - "campaign_and_advertising_copy"
+      - "packaging_and_on_pack_copy"
+      - "brand_refresh_and_identity_guidelines"
     capabilities:
       - "fast_turnaround"
       - "high_volume_copy"
       - "low_cost"
+      - "packaging_variants"
+      - "brand_refresh"
     metadata:
       cost_per_1k_input_tokens: 0.00005
       cost_per_1k_output_tokens: 0.0002
@@ -151,10 +184,14 @@ models:
     model_name: "mistral-large-latest"
     domains:
       - "localization_and_multilingual_adaptation"
+      - "customer_support_knowledge_base_localization"
+      - "travel_and_hospitality_marketing"
     capabilities:
       - "multilingual"
       - "structured_reasoning"
       - "enterprise_grade"
+      - "market_localization"
+      - "knowledge_base_translation"
     metadata:
       cost_per_1k_input_tokens: 0.002
       cost_per_1k_output_tokens: 0.006
@@ -181,10 +218,15 @@ models:
     domains:
       - "ai_prompt_engineering_and_systems"
       - "seo_and_content_strategy"
+      - "audio_and_voice_production"
+      - "customer_support_knowledge_base_localization"
     capabilities:
       - "technical_seo_code"
       - "schema_markup_generation"
       - "landing_page_components"
+      - "prompt_chaining"
+      - "workflow_design"
+      - "support_knowledge_structuring"
     metadata:
       cost_per_1k_input_tokens: 0.0002
       cost_per_1k_output_tokens: 0.0006
@@ -196,10 +238,16 @@ models:
     domains:
       - "campaign_and_advertising_copy"
       - "social_media_and_brand_storytelling"
+      - "packaging_and_on_pack_copy"
+      - "brand_refresh_and_identity_guidelines"
+      - "travel_and_hospitality_marketing"
     capabilities:
       - "open_weights_flagship"
       - "commercial_copywriting"
       - "social_campaigns"
+      - "retail_copy"
+      - "brand_language"
+      - "travel_storytelling"
     metadata:
       cost_per_1k_input_tokens: 0.0003
       cost_per_1k_output_tokens: 0.0006
