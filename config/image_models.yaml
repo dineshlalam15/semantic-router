@@ -1,70 +1,110 @@
-# Image Models Configuration: Best-in-market models for marketing visual production, design collateral, and cinematic motion.
-# Providers: OpenAI, Gemini, LiteLLM.
-# Grouped by provider: OpenAI, Gemini, LiteLLM.
-# Metadata: cost (USD per image), avg_latency_ms.
+# Image model registry for production semantic routing.
 
 models:
-
   - provider: "OpenAI"
     model_name: "gpt-image-1"
     domains:
-      - "commercial_visual_production"
-      - "brand_refresh_and_identity_guidelines"
-      - "packaging_and_on_pack_copy"
-      - "travel_and_hospitality_marketing"
-      - "real_estate_listing_and_staging"
+      - "data_infographic_image"
+      - "ui_mockup_image"
+      - "packaging_product_image"
+      - "educational_diagram_image"
+      - "inclusive_beauty_image"
+      - "typography_and_poster_image"
+      - "accessible_visual_explainer"
     capabilities:
-      - "photorealism"
-      - "creative_art_styles"
-      - "prompt_following"
-      - "commercial_hero_shots"
-      - "brand_visuals"
-      - "packaging_rendering"
-      - "hospitality_staging"
+      - "exact typography rendering"
+      - "legible text in images"
+      - "structured infographic layout"
+      - "technical diagram clarity"
+      - "high fidelity UI screenshot"
+      - "packaging text and label rendering"
+      - "inclusive skin tone rendering"
+      - "accessible visual hierarchy"
+    strengths:
+      - "Best configured option for typography-heavy graphics, UI mockups, diagrams, and mixed image-text layouts."
+      - "Strong prompt adherence and layout control."
+    weaknesses:
+      - "Less preferred than FLUX for highly cinematic advertising art."
+      - "Not a substitute for deterministic chart or UI rendering when pixel-perfect data accuracy is required."
+    ideal_workloads:
+      - "Posters and exact-text graphics"
+      - "Infographics and educational diagrams"
+      - "UI screenshots and packaging"
+      - "Inclusive campaign visuals"
+    complexity_threshold: "medium_to_high"
+    routing_hints:
+      typography_heavy_graphics: 1.0
+      ui_screenshots: 1.0
+      technical_diagrams: 0.9
+      packaging: 0.9
+      marketing_photorealism: 0.7
     metadata:
+      modality: "image"
+      photorealism: "high"
+      typography_rendering: "excellent"
+      reference_image_adherence: "high"
+      layout_infographic_suitability: "excellent"
+      brand_visual_suitability: "high"
+      packaging_suitability: "excellent"
+      editorial_suitability: "high"
+      cost_class: "medium"
+      latency_class: "medium"
+      batch_suitability: "medium"
+      safety_compliance_suitability: "high"
       cost_per_image: 0.07
       avg_latency_ms: 4500
       context_window_k: null
 
-
-  - provider: "Gemini"
-    model_name: "gemini-3-pro-image"
-    domains:
-      - "marketing_collateral_and_layout"
-      - "brand_refresh_and_identity_guidelines"
-      - "packaging_and_on_pack_copy"
-      - "real_estate_listing_and_staging"
-    capabilities:
-      - "high_fidelity_photorealism"
-      - "crisp_text_rendering"
-      - "e-commerce_pack_shots"
-      - "diverse_representation"
-      - "brand_system_visuals"
-      - "listing_staging"
-    metadata:
-      cost_per_image: 0.04
-      avg_latency_ms: 4000
-      context_window_k: null
-
-
   - provider: "LiteLLM"
     model_name: "flux-1.1-pro"
     domains:
-      - "multimedia_and_motion_production"
-      - "commercial_visual_production"
-      - "marketing_collateral_and_layout"
-      - "packaging_and_on_pack_copy"
-      - "brand_refresh_and_identity_guidelines"
-      - "travel_and_hospitality_marketing"
+      - "advertising_creative_image"
+      - "game_and_editorial_art"
+      - "hospitality_and_food_photography"
+      - "editorial_layout_image"
+      - "virtual_staging_image"
+      - "reference_conditioned_brand_image"
     capabilities:
-      - "state_of_the_art_photorealism"
-      - "fine_typography_in_images"
-      - "commercial_product_renders"
-      - "open_weights_customizable"
-      - "packaging_rendering"
-      - "brand_visuals"
-      - "destination_visuals"
+      - "premium advertising creative"
+      - "cinematic campaign photorealism"
+      - "editorial fashion art direction"
+      - "commercial product photography"
+      - "hospitality and food photorealism"
+      - "brand visual consistency"
+      - "reference conditioned product fidelity"
+      - "virtual interior staging"
+    strengths:
+      - "Preferred configured equivalent for Midjourney, Nano Banana, and FLUX.2 Pro benchmark targets."
+      - "Strong commercial photorealism, cinematic composition, and brand campaign art direction."
+    weaknesses:
+      - "Text rendering is less reliable than gpt-image-1 for exact headlines and dense labels."
+      - "Reference fidelity should be validated for exact proprietary geometry."
+    ideal_workloads:
+      - "Advertising creatives and brand campaigns"
+      - "Editorial fashion and game key art"
+      - "Hospitality, food, and property imagery"
+      - "Reference-conditioned product campaigns"
+    complexity_threshold: "high"
+    routing_hints:
+      advertising_creatives: 1.0
+      marketing_imagery: 1.0
+      photorealism: 0.95
+      editorial_content: 0.95
+      reference_conditioning: 0.85
+      typography_heavy_graphics: 0.45
     metadata:
+      modality: "image"
+      photorealism: "excellent"
+      typography_rendering: "moderate"
+      reference_image_adherence: "high"
+      layout_infographic_suitability: "moderate"
+      brand_visual_suitability: "excellent"
+      packaging_suitability: "high"
+      editorial_suitability: "excellent"
+      cost_class: "medium"
+      latency_class: "medium"
+      batch_suitability: "high"
+      safety_compliance_suitability: "medium"
       cost_per_image: 0.03
       avg_latency_ms: 4000
       context_window_k: null
@@ -72,19 +112,43 @@ models:
   - provider: "LiteLLM"
     model_name: "stable-diffusion-3-5-large"
     domains:
-      - "commercial_visual_production"
-      - "multimedia_and_motion_production"
-      - "brand_refresh_and_identity_guidelines"
-      - "travel_and_hospitality_marketing"
-      - "real_estate_listing_and_staging"
+      - "consistent_character_image"
     capabilities:
-      - "creative_art_styles"
-      - "open_weights"
-      - "fine_tunable"
-      - "cinematic_backgrounds"
-      - "brand_direction"
-      - "destination_moodboards"
+      - "fine tuned consistent character generation"
+      - "repeatable art style"
+      - "controlled line weight and palette"
+      - "customizable image pipeline"
+      - "technical illustration"
+    strengths:
+      - "Preferred configured equivalent for custom SDXL workflows and repeatable variation sets."
+      - "Supports customizable and fine-tuned consistency-focused deployments."
+    weaknesses:
+      - "Slower configured latency."
+      - "Dense typography and polished UI layouts are better handled by gpt-image-1."
+    ideal_workloads:
+      - "Character sheets and multi-image variation systems"
+      - "Custom consistency pipelines"
+      - "Technical illustration when a controlled deployment is available"
+    complexity_threshold: "medium_to_high"
+    routing_hints:
+      consistent_character_sets: 1.0
+      custom_style_control: 1.0
+      technical_diagrams: 0.7
+      typography_heavy_graphics: 0.3
+      advertising_creatives: 0.6
     metadata:
+      modality: "image"
+      photorealism: "high"
+      typography_rendering: "limited"
+      reference_image_adherence: "high_when_conditioned"
+      layout_infographic_suitability: "moderate"
+      brand_visual_suitability: "high_when_fine_tuned"
+      packaging_suitability: "moderate"
+      editorial_suitability: "high"
+      cost_class: "low"
+      latency_class: "high"
+      batch_suitability: "high"
+      safety_compliance_suitability: "deployment_dependent"
       cost_per_image: 0.01
       avg_latency_ms: 6500
       context_window_k: null
