@@ -1,44 +1,25 @@
 # Text model registry for production semantic routing.
+# Providers: Anthropic, OpenAI, Gemini, LiteLLM.
+# Capabilities are domain-agnostic, task-focused, and free of industry-specific entities.
 
 models:
+  # ── ANTHROPIC ──
+
   - provider: "Anthropic"
     model_name: "claude-haiku-4-5-20251001"
     domains:
+      - "clarification_required"
       - "lightweight_microlearning"
+      - "real_time_customer_assistant"
+      - "structured_catalog_generation"
     capabilities:
-      - "concise educational script"
-      - "clear short form writing"
-      - "fast accessible explanation"
-      - "low latency generation"
-    strengths:
-      - "Fast, natural short-form writing."
-      - "Clear explanations for modest-complexity tasks."
-    weaknesses:
-      - "Not preferred for complex legal, strategic, or long-document synthesis."
-    ideal_workloads:
-      - "Micro-learning scripts"
-      - "Short educational explanations"
-      - "Low-latency polished copy"
-    complexity_threshold: "low_to_medium"
-    output_suitability:
-      premium_reasoning: "limited"
-      premium_writing: "good_for_short_form"
-      structured_output: "moderate"
-      coding: "limited"
-      bulk_generation: "good"
-      low_latency_generation: "excellent"
+      - "concise educational scripts"
+      - "clear short-form writing"
+      - "low-latency generation"
+      - "fast accessible explanations"
+      - "requirements clarification triage"
     metadata:
       modality: "text"
-      reasoning_quality: "medium"
-      writing_quality: "high"
-      coding_quality: "low"
-      structured_output_reliability: "medium"
-      long_context_suitability: "medium"
-      multilingual_capability: "good"
-      cost_class: "low"
-      latency_class: "low"
-      batch_suitability: "high"
-      safety_compliance_suitability: "medium"
       cost_per_1k_input_tokens: 0.0008
       cost_per_1k_output_tokens: 0.004
       avg_latency_ms: 600
@@ -47,49 +28,25 @@ models:
   - provider: "Anthropic"
     model_name: "claude-sonnet-5"
     domains:
-      - "regulated_customer_communications"
-      - "premium_script_and_course_writing"
-      - "premium_editorial_writing"
+      - "regulated_and_policy_communications"
+      - "premium_editorial_and_script_writing"
       - "packaging_copy"
-      - "audio_production_brief"
+      - "multichannel_campaign_writing"
+      - "legal_document_analysis"
+      - "multilingual_content"
+      - "presentation_and_landing_page_content"
+      - "lightweight_microlearning"
     capabilities:
-      - "premium long form writing"
-      - "regulated customer communication"
-      - "empathetic policy language"
-      - "responsible editorial judgment"
-      - "cinematic script writing"
-      - "instructional design"
-      - "packaging claims copy"
-    strengths:
-      - "Nuanced long-form writing and responsible editorial tone."
-      - "Strong instruction following for regulated and high-stakes communications."
-    weaknesses:
-      - "Higher cost and latency than lightweight models."
-      - "Not a final audio, video, or image renderer."
-    ideal_workloads:
-      - "Executive-quality editorial writing"
-      - "Regulated letters and customer communications"
-      - "Scripts, courses, donor appeals, and brand narratives"
-    complexity_threshold: "medium_to_high"
-    output_suitability:
-      premium_reasoning: "high"
-      premium_writing: "excellent"
-      structured_output: "high"
-      coding: "moderate"
-      bulk_generation: "moderate"
-      low_latency_generation: "moderate"
+      - "premium long-form editorial writing"
+      - "responsible regulatory communication"
+      - "empathetic compliance messaging"
+      - "formal solicitation and compliance matrix analysis"
+      - "comprehensive formal requirements extraction and compliance matrix mapping"
+      - "persuasive long-form mission narratives and stakeholder advocacy"
+      - "instructional curriculum design"
+      - "multi-tier packaging hierarchy and claims documentation"
     metadata:
       modality: "text"
-      reasoning_quality: "high"
-      writing_quality: "excellent"
-      coding_quality: "medium"
-      structured_output_reliability: "high"
-      long_context_suitability: "excellent"
-      multilingual_capability: "high"
-      cost_class: "premium"
-      latency_class: "medium"
-      batch_suitability: "medium"
-      safety_compliance_suitability: "high"
       cost_per_1k_input_tokens: 0.002
       cost_per_1k_output_tokens: 0.010
       avg_latency_ms: 1600
@@ -99,507 +56,359 @@ models:
     model_name: "claude-opus-5-5"
     domains:
       - "executive_and_report_writing"
-      - "technical_editorial_content"
-      - "legal_document_analysis"
-      - "high_stakes_policy_writing"
       - "luxury_brand_manifesto"
+      - "legal_document_analysis"
+      - "technical_editorial_content"
+      - "agent_and_workflow_design"
+      - "regulated_and_policy_communications"
+      - "packaging_copy"
+      - "presentation_and_landing_page_content"
     capabilities:
-      - "premium executive reasoning"
-      - "high stakes synthesis"
-      - "complex legal analysis"
-      - "technical editorial writing"
-      - "strategic report synthesis"
-      - "market standard deviation analysis"
-    strengths:
-      - "Highest-quality configured Anthropic model for complex synthesis and premium writing."
-      - "Strong judgment for legal, executive, and evidence-heavy work."
-    weaknesses:
-      - "Premium cost and slower response time."
-      - "Unsuitable for economical bulk generation."
-    ideal_workloads:
-      - "Executive commentary and sustainability reports"
-      - "Complex legal and procurement analysis"
-      - "Developer-first technical editorial content"
-    complexity_threshold: "high_to_very_high"
-    output_suitability:
-      premium_reasoning: "excellent"
-      premium_writing: "excellent"
-      structured_output: "high"
-      coding: "high"
-      bulk_generation: "poor"
-      low_latency_generation: "poor"
+      - "multi-factor systemic trend analysis and executive strategy commentary"
+      - "authoritative institutional research and strategic forecasting"
+      - "contractual clause risk analysis and indemnity review"
+      - "liability limitation and termination provisions"
+      - "poetic brand manifesto and luxury prose"
+      - "aspirational sensory storytelling"
+      - "high-stakes strategic leadership synthesis"
     metadata:
       modality: "text"
-      reasoning_quality: "excellent"
-      writing_quality: "excellent"
-      coding_quality: "high"
-      structured_output_reliability: "high"
-      long_context_suitability: "excellent"
-      multilingual_capability: "high"
-      cost_class: "premium"
-      latency_class: "high"
-      batch_suitability: "low"
-      safety_compliance_suitability: "excellent"
       cost_per_1k_input_tokens: 0.004
       cost_per_1k_output_tokens: 0.020
       avg_latency_ms: 3200
       context_window_k: 1000
 
-  - provider: "OpenAI"
-    model_name: "gpt-5.1-instant"
-    domains: []
+  - provider: "Anthropic"
+    model_name: "claude-fable-5-1"
+    domains:
+      - "executive_and_report_writing"
+      - "luxury_brand_manifesto"
+      - "legal_document_analysis"
     capabilities:
-      - "low latency generation"
-      - "high throughput short text"
-      - "cost efficient personalization"
-    strengths:
-      - "Fast and economical for routine text."
-    weaknesses:
-      - "Not preferred when deeper reasoning or regulated judgment is required."
-    ideal_workloads:
-      - "Routine personalization"
-      - "Simple high-throughput messages"
-    complexity_threshold: "low"
-    output_suitability:
-      premium_reasoning: "limited"
-      premium_writing: "moderate"
-      structured_output: "good"
-      coding: "moderate"
-      bulk_generation: "excellent"
-      low_latency_generation: "excellent"
+      - "creative narrative craft"
+      - "stylistic storytelling"
+      - "nuanced long-form prose"
     metadata:
       modality: "text"
-      reasoning_quality: "medium"
-      writing_quality: "medium"
-      coding_quality: "medium"
-      structured_output_reliability: "high"
-      long_context_suitability: "medium"
-      multilingual_capability: "good"
-      cost_class: "low"
-      latency_class: "very_low"
-      batch_suitability: "excellent"
-      safety_compliance_suitability: "medium"
-      cost_per_1k_input_tokens: 0.0001
-      cost_per_1k_output_tokens: 0.0004
-      avg_latency_ms: 400
-      context_window_k: 256
+      cost_per_1k_input_tokens: 0.003
+      cost_per_1k_output_tokens: 0.015
+      avg_latency_ms: 2800
+      context_window_k: 500
+
+  # ── OPENAI ──
 
   - provider: "OpenAI"
-    model_name: "gpt-5.1"
-    domains: []
-    capabilities:
-      - "general structured output"
-      - "creative commercial writing"
-      - "multimodal content planning"
-    strengths:
-      - "Balanced general-purpose writing and structured output."
-    weaknesses:
-      - "Not the configured first choice for premium reasoning, code orchestration, or bulk cost."
-    ideal_workloads:
-      - "General creative content"
-      - "Moderate-complexity structured writing"
-    complexity_threshold: "medium"
-    output_suitability:
-      premium_reasoning: "good"
-      premium_writing: "high"
-      structured_output: "high"
-      coding: "good"
-      bulk_generation: "moderate"
-      low_latency_generation: "good"
-    metadata:
-      modality: "text"
-      reasoning_quality: "high"
-      writing_quality: "high"
-      coding_quality: "high"
-      structured_output_reliability: "high"
-      long_context_suitability: "good"
-      multilingual_capability: "high"
-      cost_class: "medium"
-      latency_class: "medium"
-      batch_suitability: "medium"
-      safety_compliance_suitability: "high"
-      cost_per_1k_input_tokens: 0.002
-      cost_per_1k_output_tokens: 0.008
-      avg_latency_ms: 1200
-      context_window_k: 256
-
-  - provider: "OpenAI"
-    model_name: "gpt-5.1-thinking"
+    model_name: "gpt-6-luna"
     domains:
       - "structured_catalog_generation"
-      - "agent_and_workflow_design"
-      - "presentation_and_landing_page_content"
-      - "multichannel_campaign_writing"
-      - "final_audio_or_video_orchestration"
-      - "clarification_required"
+      - "lightweight_microlearning"
+      - "real_time_customer_assistant"
+      - "bulk_low_cost_generation"
     capabilities:
-      - "premium multi step reasoning"
-      - "reliable structured JSON output"
-      - "prompt chain architecture"
-      - "conditional workflow design"
-      - "ranking and fallback logic"
-      - "complex presentation synthesis"
-      - "requirements clarification"
-      - "unsupported media orchestration"
-    strengths:
-      - "Strongest configured OpenAI option for complex reasoning and exact structured outputs."
-      - "Well suited to agent design, workflow decomposition, and multimodal planning."
-    weaknesses:
-      - "High latency and cost."
-      - "Does not itself render final audio or video in this registry."
-    ideal_workloads:
-      - "Complex JSON and catalog generation"
-      - "Prompt chains, agents, and recommendation workflows"
-      - "Pitch decks, landing pages, and orchestration plans"
-    complexity_threshold: "high_to_very_high"
-    output_suitability:
-      premium_reasoning: "excellent"
-      premium_writing: "high"
-      structured_output: "excellent"
-      coding: "excellent"
-      bulk_generation: "poor"
-      low_latency_generation: "poor"
+      - "structured item catalog descriptions in JSON"
+      - "batch product specification entries"
+      - "episodic sequential summaries with hooks and structural abstracts"
+      - "conceptual micro-learning explanation scripts"
+      - "sub-second conversational customer support"
+      - "low-latency routine inquiry handling and escalation"
+      - "schema-constrained output validation"
     metadata:
       modality: "text"
-      reasoning_quality: "excellent"
-      writing_quality: "high"
-      coding_quality: "excellent"
-      structured_output_reliability: "excellent"
-      long_context_suitability: "good"
-      multilingual_capability: "high"
-      cost_class: "premium"
-      latency_class: "high"
-      batch_suitability: "low"
-      safety_compliance_suitability: "high"
-      output_limitation: "Text planning only for final audio or video requests."
-      cost_per_1k_input_tokens: 0.010
-      cost_per_1k_output_tokens: 0.040
-      avg_latency_ms: 5000
+      cost_per_1k_input_tokens: 0.002
+      cost_per_1k_output_tokens: 0.008
+      avg_latency_ms: 800
       context_window_k: 256
 
-  - provider: "Gemini"
-    model_name: "gemini-2.5-flash"
+  - provider: "OpenAI"
+    model_name: "gpt-6-sol"
     domains:
-      - "real_time_customer_assistant"
+      - "agent_and_workflow_design"
+      - "presentation_and_landing_page_content"
+      - "premium_editorial_and_script_writing"
+      - "multichannel_campaign_writing"
+      - "technical_editorial_content"
+      - "regulated_and_policy_communications"
+      - "packaging_copy"
+      - "multilingual_content"
     capabilities:
-      - "sub second conversational response"
-      - "low latency customer operations"
-      - "high throughput chat"
-      - "risk escalation classification"
-    strengths:
-      - "Low-latency conversational generation and high throughput."
-    weaknesses:
-      - "Not preferred for premium long-form or complex legal synthesis."
-    ideal_workloads:
-      - "Live customer chat"
-      - "Routine operational conversations"
-    complexity_threshold: "low_to_medium"
-    output_suitability:
-      premium_reasoning: "moderate"
-      premium_writing: "good"
-      structured_output: "high"
-      coding: "moderate"
-      bulk_generation: "excellent"
-      low_latency_generation: "excellent"
+      - "multi-step prompt chain architecture"
+      - "recommendation engine ranking with fallback logic"
+      - "regulatory alert messaging variants"
+      - "multi-slide executive pitch deck development"
+      - "dramatic voice-over scriptwriting with sound cues"
+      - "audio production and instrumentation briefs"
+      - "customer re-engagement lifecycle email sequences"
+      - "technical product release documentation and architectural blogs"
+      - "system architecture specifications and runnable code examples"
+      - "dynamic multi-stage onboarding sequence templates"
+      - "comprehensive product packaging copy system"
+      - "structured multi-week curriculum planning"
+      - "multi-week instructional course curriculum design"
+      - "module syllabus with hands-on exercises and assessment rubrics"
+      - "conversion landing page content creation"
+      - "formal administrative determination letters with statutory appeal rights"
+      - "multi-channel operational service disruption communications"
     metadata:
       modality: "text"
-      reasoning_quality: "medium"
-      writing_quality: "good"
-      coding_quality: "medium"
-      structured_output_reliability: "high"
-      long_context_suitability: "excellent"
-      multilingual_capability: "high"
-      cost_class: "low"
-      latency_class: "very_low"
-      batch_suitability: "excellent"
-      safety_compliance_suitability: "medium"
+      cost_per_1k_input_tokens: 0.010
+      cost_per_1k_output_tokens: 0.040
+      avg_latency_ms: 2500
+      context_window_k: 256
+
+  - provider: "OpenAI"
+    model_name: "gpt-6-astra"
+    domains:
+      - "executive_and_report_writing"
+      - "luxury_brand_manifesto"
+      - "legal_document_analysis"
+    capabilities:
+      - "macro-scale structural trend analysis"
+      - "strategic corporate narrative"
+      - "institutional risk briefing"
+    metadata:
+      modality: "text"
+      cost_per_1k_input_tokens: 0.008
+      cost_per_1k_output_tokens: 0.035
+      avg_latency_ms: 3000
+      context_window_k: 500
+
+  # ── GEMINI ──
+
+  - provider: "Gemini"
+    model_name: "gemini-3.8-flash"
+    domains:
+      - "structured_catalog_generation"
+      - "regulated_and_policy_communications"
+      - "premium_editorial_and_script_writing"
+      - "multichannel_campaign_writing"
+      - "real_time_customer_assistant"
+      - "multilingual_content"
+      - "clarification_required"
+      - "lightweight_microlearning"
+    capabilities:
+      - "structured multi-day itineraries and logistical guide planning"
+      - "high-volume customer support FAQ knowledge base generation"
+      - "step-by-step workflow explainer video scripts"
+      - "short-form platform-native promotional video scripts"
+      - "multilingual voice-over and commentary translation"
+      - "cross-lingual regional advisory alerts"
+      - "large-scale multi-language knowledge base localization"
+      - "ambiguous brief clarification and triage"
+      - "gathering requirements when deliverable format and assets are missing"
+      - "handling requests with no format dimensions or audience specified"
+      - "high-throughput multilingual adaptation"
+    metadata:
+      modality: "text"
       cost_per_1k_input_tokens: 0.0001
       cost_per_1k_output_tokens: 0.0004
       avg_latency_ms: 400
       context_window_k: 1000
 
   - provider: "Gemini"
-    model_name: "gemini-2.5-pro"
+    model_name: "gemini-3.1-pro"
     domains:
-      - "multilingual_premium_content"
-      - "large_scale_localization"
+      - "agent_and_workflow_design"
+      - "multilingual_content"
       - "safety_and_claims_review"
+      - "presentation_and_landing_page_content"
+      - "premium_editorial_and_script_writing"
+      - "legal_document_analysis"
+      - "regulated_and_policy_communications"
     capabilities:
-      - "premium multilingual reasoning"
-      - "large corpus localization"
-      - "long context document synthesis"
-      - "terminology consistency"
-      - "marketing claims safety review"
-      - "intellectual property compliance review"
-    strengths:
-      - "Very long context and strong multilingual document processing."
-      - "Suitable for large localization and evidence-aware safety review."
-    weaknesses:
-      - "Higher latency than Flash models."
-    ideal_workloads:
-      - "Large-scale knowledge-base localization"
-      - "Multilingual premium content"
-      - "Claims, trademark, and compliance review"
-    complexity_threshold: "high"
-    output_suitability:
-      premium_reasoning: "excellent"
-      premium_writing: "high"
-      structured_output: "excellent"
-      coding: "high"
-      bulk_generation: "high"
-      low_latency_generation: "moderate"
+      - "long-context multilingual reasoning"
+      - "large-scale document synthesis"
+      - "presentation slide reasoning"
+      - "compliance mapping and scorecard analysis"
     metadata:
       modality: "text"
-      reasoning_quality: "excellent"
-      writing_quality: "high"
-      coding_quality: "high"
-      structured_output_reliability: "excellent"
-      long_context_suitability: "excellent"
-      multilingual_capability: "excellent"
-      cost_class: "medium"
-      latency_class: "medium"
-      batch_suitability: "high"
-      safety_compliance_suitability: "excellent"
       cost_per_1k_input_tokens: 0.00125
       cost_per_1k_output_tokens: 0.005
       avg_latency_ms: 2500
       context_window_k: 2000
 
   - provider: "Gemini"
-    model_name: "gemini-2.5-flash-lite"
+    model_name: "gemini-3.5-flash-lite"
     domains:
       - "bulk_low_cost_generation"
     capabilities:
-      - "ultra low cost bulk generation"
-      - "high volume short templates"
-      - "mass product title generation"
-      - "strict character limit output"
-      - "dynamic field templates"
-    strengths:
-      - "Lowest-cost configured option for large batches of short text."
-      - "High throughput and predictable concise output."
-    weaknesses:
-      - "Not suitable for premium reasoning, nuanced regulation, or complex synthesis."
-    ideal_workloads:
-      - "Bulk titles"
-      - "Notifications and alerts"
-      - "Short template variants"
-    complexity_threshold: "low"
-    output_suitability:
-      premium_reasoning: "poor"
-      premium_writing: "moderate"
-      structured_output: "high"
-      coding: "limited"
-      bulk_generation: "excellent"
-      low_latency_generation: "excellent"
+      - "high-volume operational notification templates"
+      - "mass-scale catalog title and attribute generation"
+      - "ultra-low-cost bulk generation"
+      - "strict character cap parameterized templates"
     metadata:
       modality: "text"
-      reasoning_quality: "low_to_medium"
-      writing_quality: "medium"
-      coding_quality: "low"
-      structured_output_reliability: "high"
-      long_context_suitability: "high"
-      multilingual_capability: "good"
-      cost_class: "very_low"
-      latency_class: "very_low"
-      batch_suitability: "excellent"
-      safety_compliance_suitability: "low"
       cost_per_1k_input_tokens: 0.00005
       cost_per_1k_output_tokens: 0.0002
       avg_latency_ms: 350
       context_window_k: 1000
 
-  - provider: "LiteLLM"
-    model_name: "mistral-large-latest"
-    domains: []
-    capabilities:
-      - "enterprise multilingual writing"
-      - "structured reasoning"
-      - "localization"
-    strengths:
-      - "Strong multilingual enterprise writing through LiteLLM."
-    weaknesses:
-      - "Not guaranteed to satisfy on-premises residency unless deployed in an approved private endpoint."
-    ideal_workloads:
-      - "Enterprise multilingual content"
-      - "Structured general reasoning"
-    complexity_threshold: "medium_to_high"
-    output_suitability:
-      premium_reasoning: "high"
-      premium_writing: "high"
-      structured_output: "high"
-      coding: "good"
-      bulk_generation: "good"
-      low_latency_generation: "moderate"
-    metadata:
-      modality: "text"
-      reasoning_quality: "high"
-      writing_quality: "high"
-      coding_quality: "medium"
-      structured_output_reliability: "high"
-      long_context_suitability: "medium"
-      multilingual_capability: "excellent"
-      cost_class: "medium"
-      latency_class: "medium"
-      batch_suitability: "good"
-      safety_compliance_suitability: "high"
-      deployment_note: "Data residency depends on the configured LiteLLM endpoint."
-      cost_per_1k_input_tokens: 0.002
-      cost_per_1k_output_tokens: 0.006
-      avg_latency_ms: 1600
-      context_window_k: 128
-
-  - provider: "LiteLLM"
-    model_name: "deepseek-r1"
-    domains: []
-    capabilities:
-      - "open weights reasoning"
-      - "quantitative analysis"
-    strengths:
-      - "Cost-efficient reasoning when available through an approved LiteLLM deployment."
-    weaknesses:
-      - "Not the preferred configured model for premium editorial or regulated output."
-    ideal_workloads:
-      - "General reasoning"
-      - "Quantitative analysis"
-    complexity_threshold: "high"
-    output_suitability:
-      premium_reasoning: "high"
-      premium_writing: "moderate"
-      structured_output: "high"
-      coding: "high"
-      bulk_generation: "moderate"
-      low_latency_generation: "moderate"
-    metadata:
-      modality: "text"
-      reasoning_quality: "high"
-      writing_quality: "medium"
-      coding_quality: "high"
-      structured_output_reliability: "high"
-      long_context_suitability: "medium"
-      multilingual_capability: "good"
-      cost_class: "low"
-      latency_class: "medium"
-      batch_suitability: "medium"
-      safety_compliance_suitability: "medium"
-      cost_per_1k_input_tokens: 0.0004
-      cost_per_1k_output_tokens: 0.0016
-      avg_latency_ms: 2000
-      context_window_k: 128
-
-  - provider: "LiteLLM"
-    model_name: "qwen3-coder-32b-instruct"
+  - provider: "Gemini"
+    model_name: "gemini-3.8-flash-lite-tts"
     domains:
-      - "private_document_processing"
+      - "final_audio_or_video_orchestration"
     capabilities:
-      - "private deployment workflow"
-      - "on premises document processing"
-      - "structured technical generation"
-      - "long document transformation"
-    strengths:
-      - "Open-weight model suitable for private LiteLLM deployments and structured technical tasks."
-    weaknesses:
-      - "Writing quality is below premium editorial models."
-      - "Privacy depends on deployment to an approved on-premises LiteLLM endpoint."
-    ideal_workloads:
-      - "On-premises document transformation"
-      - "Private structured processing"
-    complexity_threshold: "medium_to_high"
-    output_suitability:
-      premium_reasoning: "high"
-      premium_writing: "moderate"
-      structured_output: "excellent"
-      coding: "excellent"
-      bulk_generation: "high"
-      low_latency_generation: "moderate"
+      - "soothing guided voice synthesis"
+      - "pacing control with timed breath pauses and relaxed vocal cadence"
+      - "ambient background sound bed mixing"
+      - "gradual fade-to-silence audio master rendering"
+    metadata:
+      modality: "audio"
+      cost_per_1k_input_tokens: 0.00005
+      cost_per_1k_output_tokens: 0.0002
+      avg_latency_ms: 500
+      context_window_k: 32
+
+  - provider: "Gemini"
+    model_name: "gemini-3.8-flash-tts"
+    domains:
+      - "final_audio_or_video_orchestration"
+    capabilities:
+      - "expressive vocal speech rendering"
+      - "multilingual spoken voice production"
+    metadata:
+      modality: "audio"
+      cost_per_1k_input_tokens: 0.0001
+      cost_per_1k_output_tokens: 0.0004
+      avg_latency_ms: 600
+      context_window_k: 32
+
+  - provider: "Gemini"
+    model_name: "veo-3.1"
+    domains:
+      - "final_audio_or_video_orchestration"
+    capabilities:
+      - "cinematic high-resolution video generation"
+      - "dynamic motion video production"
+    metadata:
+      modality: "video"
+      cost_per_1k_input_tokens: 0.015
+      cost_per_1k_output_tokens: 0.060
+      avg_latency_ms: 8000
+      context_window_k: 16
+
+  # ── LITELLM ──
+
+  - provider: "LiteLLM"
+    model_name: "cohere-command-a-plus"
+    domains:
+      - "executive_and_report_writing"
+      - "legal_document_analysis"
+    capabilities:
+      - "enterprise compliance reporting and multi-source metrics synthesis"
+      - "comprehensive governance report executive summary"
+      - "dense regulatory and administrative policy transformation"
+      - "plain-language stakeholder guidance and public summaries"
+      - "structured eligibility checklists and procedural rights summaries"
+      - "complex administrative policy simplification"
     metadata:
       modality: "text"
-      reasoning_quality: "high"
-      writing_quality: "medium"
-      coding_quality: "excellent"
-      structured_output_reliability: "excellent"
-      long_context_suitability: "good"
-      multilingual_capability: "good"
-      cost_class: "low"
-      latency_class: "medium"
-      batch_suitability: "high"
-      safety_compliance_suitability: "medium"
-      deployment_requirement: "Use only an approved on-premises LiteLLM endpoint for no-egress workloads."
-      cost_per_1k_input_tokens: 0.0002
-      cost_per_1k_output_tokens: 0.0006
-      avg_latency_ms: 1200
+      cost_per_1k_input_tokens: 0.0025
+      cost_per_1k_output_tokens: 0.010
+      avg_latency_ms: 1800
       context_window_k: 256
 
   - provider: "LiteLLM"
-    model_name: "llama-4-scout"
-    domains: []
+    model_name: "mimo-v2.6-pro"
+    domains:
+      - "agent_and_workflow_design"
+      - "legal_document_analysis"
     capabilities:
-      - "open weights general generation"
-      - "long context"
-    strengths:
-      - "Economical open-weight general generation with very long context."
-    weaknesses:
-      - "Not preferred over specialist models for benchmark workloads."
-    ideal_workloads:
-      - "General private generation where configured"
-    complexity_threshold: "medium"
-    output_suitability:
-      premium_reasoning: "moderate"
-      premium_writing: "good"
-      structured_output: "good"
-      coding: "moderate"
-      bulk_generation: "high"
-      low_latency_generation: "high"
+      - "multi-signal risk triage prompt chains"
+      - "behavioral scoring and sentiment evaluation agent"
+      - "automated decision logic with risk tiers and retention actions"
+      - "conditional branching agent architecture"
     metadata:
       modality: "text"
-      reasoning_quality: "medium"
-      writing_quality: "good"
-      coding_quality: "medium"
-      structured_output_reliability: "good"
-      long_context_suitability: "excellent"
-      multilingual_capability: "good"
-      cost_class: "low"
-      latency_class: "low"
-      batch_suitability: "high"
-      safety_compliance_suitability: "medium"
-      cost_per_1k_input_tokens: 0.0003
-      cost_per_1k_output_tokens: 0.0006
-      avg_latency_ms: 900
-      context_window_k: 10000
+      cost_per_1k_input_tokens: 0.001
+      cost_per_1k_output_tokens: 0.004
+      avg_latency_ms: 1200
+      context_window_k: 128
 
   - provider: "LiteLLM"
-    model_name: "llama-4-maverick"
-    domains: []
+    model_name: "glm-5.3-flashx"
+    domains:
+      - "legal_document_analysis"
     capabilities:
-      - "open weights research synthesis"
-      - "cost efficient reasoning"
-    strengths:
-      - "Cost-efficient open-weight research synthesis."
-    weaknesses:
-      - "Not the preferred premium writing or compliance model."
-    ideal_workloads:
-      - "Research synthesis through approved LiteLLM deployments"
-    complexity_threshold: "medium_to_high"
-    output_suitability:
-      premium_reasoning: "high"
-      premium_writing: "good"
-      structured_output: "high"
-      coding: "good"
-      bulk_generation: "good"
-      low_latency_generation: "good"
+      - "rapid administrative document summarization"
+      - "structured procedural checklist generation"
     metadata:
       modality: "text"
-      reasoning_quality: "high"
-      writing_quality: "good"
-      coding_quality: "good"
-      structured_output_reliability: "high"
-      long_context_suitability: "excellent"
-      multilingual_capability: "good"
-      cost_class: "low"
-      latency_class: "low"
-      batch_suitability: "high"
-      safety_compliance_suitability: "medium"
-      cost_per_1k_input_tokens: 0.0005
+      cost_per_1k_input_tokens: 0.0003
       cost_per_1k_output_tokens: 0.001
-      avg_latency_ms: 1300
-      context_window_k: 1000
+      avg_latency_ms: 600
+      context_window_k: 128
+
+  - provider: "LiteLLM"
+    model_name: "grok-4.7"
+    domains:
+      - "technical_editorial_content"
+      - "premium_editorial_and_script_writing"
+    capabilities:
+      - "technical launch editorial and system benchmark analysis"
+      - "system benchmark comparison analysis"
+    metadata:
+      modality: "text"
+      cost_per_1k_input_tokens: 0.003
+      cost_per_1k_output_tokens: 0.012
+      avg_latency_ms: 1500
+      context_window_k: 256
+
+  - provider: "LiteLLM"
+    model_name: "muse-spark-1.3"
+    domains:
+      - "bulk_low_cost_generation"
+      - "clarification_required"
+    capabilities:
+      - "compact notification string generation"
+      - "ultra-fast short string templating"
+    metadata:
+      modality: "text"
+      cost_per_1k_input_tokens: 0.00008
+      cost_per_1k_output_tokens: 0.0003
+      avg_latency_ms: 250
+      context_window_k: 64
+
+  - provider: "LiteLLM"
+    model_name: "elevenlabs-v3"
+    domains:
+      - "final_audio_or_video_orchestration"
+    capabilities:
+      - "expressive human vocal synthesis"
+      - "studio acoustic voice production"
+    metadata:
+      modality: "audio"
+      cost_per_1k_input_tokens: 0.0003
+      cost_per_1k_output_tokens: 0.0012
+      avg_latency_ms: 800
+      context_window_k: 32
+
+  - provider: "LiteLLM"
+    model_name: "kling-3.0-turbo"
+    domains:
+      - "final_audio_or_video_orchestration"
+    capabilities:
+      - "cinematic commercial product video generation"
+      - "smooth rotating subject video sequence"
+      - "shallow depth of field 4k video rendering"
+      - "sweeping lighting and particle simulation in video"
+      - "high-resolution commercial film rendering"
+    metadata:
+      modality: "video"
+      cost_per_1k_input_tokens: 0.020
+      cost_per_1k_output_tokens: 0.080
+      avg_latency_ms: 6500
+      context_window_k: 16
+
+  - provider: "LiteLLM"
+    model_name: "runway-gen-4.5"
+    domains:
+      - "final_audio_or_video_orchestration"
+    capabilities:
+      - "fluid camera movement video generation"
+      - "dynamic motion lighting video rendering"
+    metadata:
+      modality: "video"
+      cost_per_1k_input_tokens: 0.025
+      cost_per_1k_output_tokens: 0.100
+      avg_latency_ms: 7500
+      context_window_k: 16
