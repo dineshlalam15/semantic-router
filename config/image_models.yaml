@@ -104,7 +104,7 @@ models:
       - "creative_and_photorealistic_image"
     capabilities:
       - "macro photography simulation with extreme close-up detail"
-      - "shallow depth-of-field and optical bokeh control"
+      - "selective focus and optical bokeh control"
       - "specular sheen, moisture, and vapor surface texture rendering"
       - "organic material texture synthesis and fine surface detail"
       - "directional soft lighting and warm ambient illumination"
@@ -154,8 +154,8 @@ models:
       - "reference-conditioned image synthesis and geometric consistency"
       - "character concept turnaround sheet generation"
       - "multi-angle front side and back view consistency"
-      - "reproducing proprietary silhouette and geometry from reference photos"
-      - "exact hardware clasp and stitching pattern preservation from references"
+      - "reproducing structural proportions and silhouette from source imagery"
+      - "fine detail and surface pattern preservation from reference material"
       - "precise prompt-guided character and object feature control"
       - "self-hosted private model execution and reproducible generation"
     metadata:

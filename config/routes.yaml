@@ -1,11 +1,10 @@
 # Generic semantic routes based on modality, task structure, complexity, and constraints.
-# Utterances are domain-agnostic, task-focused, and free of industry-specific entities or prompt copies.
+# Utterances are domain-agnostic, task-focused, and free of industry-specific.
 
 routes:
-  # ── TEXT DOMAINS ──
 
-  - name: "structured_catalog_generation"
-    description: "Large, schema-constrained collections of detailed machine-readable content."
+  - name: "structured_catalog_and_realtime_support"
+    description: "Large, schema-constrained collections of machine-readable content, plus low-latency live assistants handling routine intents with explicit high-risk escalation. Merged because both route to the identical candidate model set (claude-haiku-4-5-20251001, gpt-6-luna, gemini-3.8-flash)."
     priority: 10
     utterances:
       - "Generate a large batch of structured catalog records with consistent attributes, categories, and schema formatting."
@@ -16,6 +15,11 @@ routes:
       - "Build an extensive inventory dataset of descriptive entries formatted in strict JSON against an exact schema."
       - "Generate batch serialized descriptions for multiple items or episodes with hooks, summaries, and platform formatting."
       - "Produce a collection of uniform descriptive entries formatted with exact field constraints, tags, and summary points."
+      - "Power a live conversational service assistant maintaining sub-second response times for routine transactional inquiries."
+      - "Handle high-frequency conversational customer intents with strict latency guarantees and automated risk escalation triggers."
+      - "Deploy a real-time conversational agent capable of rapid lookup, automated confirmation, and seamless handoff to human specialists."
+      - "Build a low-latency live chat service responding within milliseconds to frequent inquiries while enforcing safety thresholds."
+      - "Provide instantaneous automated conversational support for account inquiries with rigorous human-escalation protocols."
 
   - name: "agent_and_workflow_design"
     description: "Prompt chains, decision agents, conditional workflows, ranking systems, and fallback logic."
@@ -160,16 +164,6 @@ routes:
       - "Analyze complex multi-party agreements to identify legal liabilities, indemnification exposures, and non-standard commitments."
       - "Summarize formal contractual risks, flag deviations from standard legal provisions, and produce a structured overview table."
 
-  - name: "real_time_customer_assistant"
-    description: "Low-latency live assistants handling routine intents with explicit high-risk escalation."
-    priority: 10
-    utterances:
-      - "Power a live conversational service assistant maintaining sub-second response times for routine transactional inquiries."
-      - "Handle high-frequency conversational customer intents with strict latency guarantees and automated risk escalation triggers."
-      - "Deploy a real-time conversational agent capable of rapid lookup, automated confirmation, and seamless handoff to human specialists."
-      - "Build a low-latency live chat service responding within milliseconds to frequent inquiries while enforcing safety thresholds."
-      - "Provide instantaneous automated conversational support for account inquiries with rigorous human-escalation protocols."
-
   - name: "clarification_required"
     description: "Underspecified requests that must gather requirements before generation."
     priority: 10
@@ -185,13 +179,11 @@ routes:
     priority: 10
     utterances:
       - "Render a finished production audio track featuring voice synthesis, controlled speaking pace, acoustic pauses, and ambient mixing."
-      - "Generate a completed cinematic video clip featuring smooth camera motion, shallow depth of field, dynamic lighting, and render effects."
+      - "Generate a completed cinematic video clip featuring smooth camera motion, selective focus and background blur, dynamic lighting, and render effects."
       - "Deliver a rendered time-based media file with specified acoustic parameters, audio bed mixing, and vocal delivery rather than just a script."
       - "Produce a finished high-resolution digital video sequence with simulated camera moves, depth blur, and atmospheric lighting."
       - "Synthesize a complete polished audio master with custom vocal characteristics, ambient sound layering, and decibel-calibrated levels."
       - "Render a production-ready playable video deliverable with photorealistic camera motion and light reflection effects."
-
-  # ── IMAGE DOMAINS ──
 
   - name: "creative_and_photorealistic_image"
     description: "Promotional banners, social media visuals, cinematic art, macro tabletop still life imagery, and architectural perspective imagery."
@@ -201,7 +193,7 @@ routes:
       - "Produce a cohesive multi-image lifestyle visual sequence with uniform lighting, environmental styling, and social media layout."
       - "Generate dramatic stylized concept key art featuring a focal character, volumetric atmospheric lighting, and cinematic composition."
       - "Create high-fidelity commercial tabletop still life photography featuring organic surface textures, selective focus, and sculpted directional lighting."
-      - "Stage an interior architectural space with designer furnishings in a distinct aesthetic while preserving room geometry and perspective."
+      - "Stage an interior architectural space with designer furnishings in a distinct aesthetic while preserving spatial layout and dimensions."
       - "Generate photorealistic outdoor scenic landscape photography featuring golden-hour illumination, reflective water elements, and high-aesthetic styling."
       - "Create an editorial photography collection with architectural backdrops, rich textile styling, muted color palettes, and cinematic film texture."
 
@@ -234,11 +226,9 @@ routes:
       - "Generate photorealistic commercial product packaging renders highlighting material textures, transparency windows, and studio lighting."
       - "Create commercial portrait photography showcasing diverse complexions with authentic lighting and true undertone representation."
       - "Produce a multi-angle character concept sheet set maintaining strict stylistic consistency, proportion control, and uniform art direction."
-      - "Generate conditioned commercial product imagery that accurately reproduces signature hardware, surface finishes, and geometry from reference photos."
+      - "Generate conditioned commercial product imagery that accurately reproduces signature hardware, surface finishes, and structural proportions from source imagery."
       - "Render studio product packaging variants with color-coded label accents, realistic surface reflections, and soft studio shadow drops."
       - "Generate consistent multi-variant character concept designs sharing identical art style while varying physical attributes and equipment."
-
-  # ── MIXED DOMAIN ──
 
   - name: "safety_and_claims_review"
     description: "Requests involving protected third-party material, unverified claims, or potentially misleading comparisons."
